@@ -12,8 +12,7 @@ const mentorSchema = Schema({
     unique: true,
   },
   tel: {
-    type: String,
-    required: true,
+    type: Number,
   },
   password: {
     type: String,
@@ -21,7 +20,6 @@ const mentorSchema = Schema({
   },
   domain: {
     type: String,
-    required: true,
   },
   competencies: {
     type: Array,

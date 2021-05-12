@@ -6,35 +6,31 @@ function mentorSignUpRender(req, res) {
 }
 
 async function mentorSignUp(req, res) {
-  const { name, email, tel, password, domain, experience } = req.body
+  const { name, email, password, experience } = req.body
   try {
     if (
       name &&
       email &&
-      tel &&
       password &&
-      domain &&
       experience
 
     ) {
       const hashedPassword = await bcrypt.hash(password, 10);
-      const newProfi = await Mentor.create({
+      const newMentor = await Mentor.create({
         name,
         email,
-        tel,
         password: hashedPassword,
-        domain,
         competencies: "React",
         experience,
         payPerHour: 1000,
-        role: "mentor",
+        role: "mentor"
       });
-      if (newProfi) {
-        req.session.profi = {
-          id: newProfi._id,
+      if (newMentor) {
+        req.session.mentor = {
+          id: newMentor._id,
           role: "mentor",
         };
-        res.redirect(`/mentor/${newProfi._id}`);
+        res.redirect(`/mentor/${newMentor._id}`);
 
 
       }
@@ -52,17 +48,17 @@ async function mentorSignIn(req, res) {
   const { email, password } = req.body;
   try {
     if (email && password) {
-      const currentProfi = await Mentor.findOne({ email });
+      const currentMentor = await Mentor.findOne({ email });
       if (
-        currentProfi &&
-        (await bcrypt.compare(password, currentProfi.password))
+        currentMentor &&
+        (await bcrypt.compare(password, currentMentor.password))
       ) {
-        req.session.profi = {
-          id: currentProfi._id,
+        req.session.mentor = {
+          id: currentMentor._id,
           role: "mentor",
         };
-        if (currentProfi) {
-          res.redirect(`/mentor/${currentProfi._id}`);
+        if (currentMentor) {
+          res.redirect(`/mentor/${currentMentor._id}`);
         }
       }
     }
@@ -80,45 +76,23 @@ async function mentorSignOut(req, res) {
 
 
 async function mentorProfile(req, res) {
-  const profiId = req.params.id
-  const mentor = await Mentor.findOne({ _id: profiId })
+  const mentorId = req.params.id
+  const mentor = await Mentor.findOne({ _id: mentorId })
   res.render('mentors/mentorLC', { mentor });
 };
 
 
-// async function profiShowAll(req, res) {
-//     const profi = await Profi.find();
-//     res.render("profi/profiAll", { profi });
-// }
+async function mentorShowAll(req, res) {
+  const mentorAll = await Mentor.find();
+  res.render("mentors/mentorAll", { mentorAll });
+}
 
-// async function profiDeleteProfile(req, res) {
-//     try {
-//       console.log(req.params.id);
-//       await Profi.findByIdAndDelete({_id: req.params.id});
+async function searchMentors(req, res) {
+  const mentors = await Mentor.find({ name: req.body.name })
+  console.log()
 
-//       res.redirect("/profi/showall");
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-
-// async function profiEditRender(req, res) {
-//   const a = req.params.id;
-//   const currentProfi = await Profi.findOne({ _id: a });
-//   res.render("profi/profiEdit", {currentProfi});
-// }
-
-// async function profiEdit(req, res) {
-//   const { ID, name, email, tel, password, domain, competencies, experience, payPerHour } = req.body;
-//   console.log(ID);
-//     const currentProfi = await Profi.findOne({ _id: ID });
-//     await Profi.findByIdAndUpdate(
-//       currentProfi._id,
-//       { name, email, tel, password, domain, competencies, experience, payPerHour },
-//       { new: true }
-//     );
-//   res.redirect("/profi/showall"); 
-// }
+  res.json(mentors)
+}
 
 module.exports = {
   mentorSignUpRender,
@@ -126,10 +100,7 @@ module.exports = {
   mentorSignInRender,
   mentorSignIn,
   mentorSignOut,
-  mentorProfile
-  // profiProfile,
-  // profiShowAll,
-  // profiDeleteProfile,
-  // profiEditRender,
-  // profiEdit
+  mentorProfile,
+  mentorShowAll,
+  searchMentors,
 };

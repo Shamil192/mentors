@@ -3,8 +3,8 @@ const Mentor = require('../models/mentor');
 const createError = require('http-errors');
 
 async function resLocals(req, res, next) {
-  const userId = req.session?.user?.id
-  const useRole = req.session?.user?.role
+  const userId = req.session?.mentor?.id
+  const useRole = req.session?.mentor?.role
   if (useRole === 'mentor') {
     if (userId) {
       const currentProfi = await Mentor.findById(userId);
@@ -15,6 +15,16 @@ async function resLocals(req, res, next) {
   }
   next()
 }
+
+const checkAuth = (req, res, next) => {
+  const userId = req.session?.mentor?.id // ? - оператор опциональной последовательности 
+  if (userId) {
+    return next()
+  }
+  return res.redirect('/mentor/signup')
+}
+
+
 
 function createErr(req, res, next) {
   const error = createError(404, 'Запрашиваемой страницы не существует на сервере.');
@@ -47,5 +57,6 @@ function cathErrAndSendAnswer(err, req, res, next) {
 module.exports = {
   resLocals,
   createErr,
-  cathErrAndSendAnswer
+  cathErrAndSendAnswer,
+  checkAuth,
 }

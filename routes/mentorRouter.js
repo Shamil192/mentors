@@ -6,13 +6,15 @@ const {
   mentorSignInRender,
   mentorSignIn,
   mentorSignOut,
-  mentorProfile
+  mentorProfile,
+  mentorShowAll,
+  searchMentors,
+} = require('../controllers/mentorControllers');
+const { checkAuth } = require('../middleware/resLocals');
 
-  // profiShowAll,
-  // profiDeleteProfile,
-  // profiEditRender,
-  // profiEdit
-} = require('../controllers/mentorControllers')
+mentorRouter.route('/showall')
+  .get(mentorShowAll)
+  .post(searchMentors)
 
 mentorRouter.route('/signup')
   .get(mentorSignUpRender)
@@ -22,14 +24,11 @@ mentorRouter.route('/signin')
   .get(mentorSignInRender)
   .post(mentorSignIn)
 
-mentorRouter.route('/mentor/signout')
+mentorRouter.route('/signout')
   .get(mentorSignOut)
 
-// mentorRouter.route('/showall')
-//   .get(profiShowAll)
-
 mentorRouter.route('/:id')
-  .get(mentorProfile)
+  .get(checkAuth, mentorProfile)
 
 // mentorRouter.route('/delete/:id')
 //   .get(profiDeleteProfile)
