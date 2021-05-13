@@ -4,13 +4,16 @@ function mentorSignUpRender(req, res) {
   res.render("mentors/mentorSignUp");
 }
 async function mentorSignUp(req, res) {
-  const { name, email, password, experience } = req.body
+  const { name, email, password, domain, payPerHour, tel, experience } = req.body
   try {
     if (
       name &&
       email &&
       password &&
-      experience
+      tel &&
+      experience &&
+      payPerHour &&
+      domain
 
     ) {
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -18,9 +21,10 @@ async function mentorSignUp(req, res) {
         name,
         email,
         password: hashedPassword,
-        competencies: "React",
+        domain,
+        tel,
         experience,
-        payPerHour: 1000,
+        payPerHour,
         role: "mentor"
       });
       if (newMentor) {
@@ -28,7 +32,7 @@ async function mentorSignUp(req, res) {
           id: newMentor._id,
           role: "mentor",
         };
-        res.redirect(`/mentor/${newMentor._id}`);
+        return res.redirect(`/mentor/${newMentor._id}`);
 
       }
     }
@@ -57,7 +61,7 @@ async function mentorSignIn(req, res) {
           role: "mentor",
         };
         if (currentMentor) {
-          res.redirect(`/mentor/${currentMentor._id}`);
+          return res.redirect(`/mentor/${currentMentor._id}`);
         }
       }
     }
@@ -87,8 +91,7 @@ async function mentorProfile(req, res) {
 
 async function mentorDeleteProfile(req, res) {
   try {
-    console.log(req.params.id);
-    await Mentor.findByIdAndDelete(req.session.user.id);
+    await Mentor.findByIdAndDelete(req.session.mentor.id);
     res.redirect('/');
   } catch (error) {
     const newError = new Error(error);

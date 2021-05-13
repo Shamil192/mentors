@@ -13,6 +13,7 @@ const mentorSchema = Schema({
   },
   tel: {
     type: String,
+    required: true,
   },
   password: {
     type: String,
@@ -20,18 +21,19 @@ const mentorSchema = Schema({
   },
   domain: {
     type: String,
+    required: true,
   },
-  competencies: {
-    type: Array,
-  },
+  // competencies: {
+  //   type: Array,
+  //   required: true,
+  // },
   experience: {
     type: Number,
     required: true,
   },
   payPerHour: {
     type: Number,
-    default: 1000
-    // required: true,
+    required: true,
   },
   role: String,
   createdAt: Date,
