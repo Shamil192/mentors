@@ -1,31 +1,101 @@
 const filterForm = document.filterForm;
-const allMentors = document.querySelector('#allMentors')
+const allMentors = document.querySelector("#allMentors");
 
 if (filterForm) {
-
-  filterForm.addEventListener('submit', async (event) => {
-    event.preventDefault()
-
-    const response = await fetch('/mentor/showall',
-      {
-        method: 'POST',
+  filterForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    allMentors.innerHTML = ""
+    const select = document.querySelector("select")
+    if (select.options[select.selectedIndex] && select.options[select.selectedIndex].text !== 'Выберите компетенции') {
+      const skill = select.options[select.selectedIndex].text
+      const responseSkill = await fetch("/mentor/showall", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: event.target.name.value
+          command: skill,
         }),
       });
+      const resultRes = await responseSkill.json();
+      
+      allMentors.innerHTML = "";
+      resultRes
+        .forEach((element) => {
+          allMentors.innerHTML += `<li>
+        <div> 
+          <p>Ментор: ${element.name}</p>
+          <p>Опыт работы: ${element.experience}</p>
+          <p>Стоимость занятий: ${element.payPerHour} руб/ч</p>
+          <p>${element.competencies}</p>
+        </div>
+      </li>`;
+        });
+    }
+    // console.log(event.target);
+
+    const checkCost = document.querySelector("#costSort");
+    const checkExperience = document.querySelector("#experianceSort");
+    const response = await fetch("/mentor/showall", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        command: 1,
+      }),
+    });
     const resultResponse = await response.json();
-    allMentors.innerHTML = '';
-    resultResponse.forEach(element => {
-      allMentors.innerHTML += `<li>
+    if (!checkCost.checked && !checkExperience.checked) {
+      const newResult = [...resultResponse];
+    }
+    if (checkExperience.checked && checkCost.checked) {
+      const newResult = [...resultResponse];
+      allMentors.innerHTML = "";
+      newResult
+        .sort((a, b) => a.experience - b.experience && a.payPerHour - b.payPerHour)
+        .forEach((element) => {
+          allMentors.innerHTML += `<li>
+        <div> 
+          <p>Ментор: ${element.name}</p>
+          <p>Опыт работы: ${element.experience}</p>
+          <p>Стоимость занятий: ${element.payPerHour} руб/ч</p>
+          <p>${element.competencies}</p>
+        </div>
+      </li>`;
+        });
+    }
+    if (checkCost.checked) {
+      const newResult = [...resultResponse];
+      allMentors.innerHTML = "";
+      newResult
+        .sort((a, b) => a.payPerHour - b.payPerHour)
+        .forEach((element) => {
+          allMentors.innerHTML += `<li>
       <div> 
         <p>Ментор: ${element.name}</p>
         <p>Опыт работы: ${element.experience}</p>
         <p>Стоимость занятий: ${element.payPerHour} руб/ч</p>
+        <p>${element.competencies}</p>
       </div>
-    </li>`
-    });
-  })
+    </li>`;
+        });
+    }
+    if (checkExperience.checked) {
+      const newResult = [...resultResponse];
+      allMentors.innerHTML = "";
+      newResult
+        .sort((a, b) => a.experience - b.experience)
+        .forEach((element) => {
+          allMentors.innerHTML += `<li>
+        <div> 
+          <p>Ментор: ${element.name}</p>
+          <p>Опыт работы: ${element.experience}</p>
+          <p>Стоимость занятий: ${element.payPerHour} руб/ч</p>
+          <p>${element.competencies}</p>
+        </div>
+      </li>`;
+        });
+    }
+  });
 }
