@@ -1,17 +1,25 @@
 <h1> Менторы туточки!</h1>
 <p>Поищи себе ментоар</p>
 <form name='filterForm' method="POST">
-  <input name='name' type="text">
+  <select id="select" name='name'>
+    <option disabled selected>Выберите компетенции</option>
+    {{#each uniqueCompetencies}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+  <p><input id="costSort" name='sort' type="radio">По стоимости</p>
+  <p><input id="experianceSort" name='sort' type="radio">По опыту</p>
   <button>срочно ищи!</button>
 </form>
 <ul id='allMentors'>
-  {{#each mentorAll}}
-  <li>
-    <div>
-      <p>Ментор: {{this.name}}</p>
-      <p>Опыт работы: {{this.experience}}</p>
-      <p>Стоимость занятий: {{this.payPerHour}} руб/ч</p>
-    </div>
-  </li>
-  {{/each}}
+{{#each mentorAll}}
+<li>
+  <div> 
+    <p>Ментор: {{this.name}}</p>
+    <p>Опыт работы: {{this.experience}}</p>
+    <p>Стоимость занятий: {{this.payPerHour}} руб/ч</p>
+    <p>{{this.competencies}}</p>
+  </div>
+</li>
+{{/each}}
 </ul>

@@ -1,4 +1,71 @@
-{{!-- личный кабинет ментора --}}
+<br>
+<div class='mainLC' style="
+    display: flex;
+    justify-content: space-evenly;
+">
+<div class="card" style="width: 20rem;">
+  <img src="{{mentor.img}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{mentor.name}}</h5>
+    <p class="card-text">{{mentor.domain}}</p>
+    <p class="card-text">{{mentor.payPerHour}}  руб/ч</p>
+    <a href="#" class="btn btn-primary">Записаться</a>
+  </div>
+</div>
+<div class="info card" style="width: 44rem">
+  <div class="info card-header">
+    Немножечко информации обо мне
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Меня зовут {{mentor.name}}</h5>
+    <p class="card-text">С чем я могу помочь</p>
+    <ul>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+    </ul>
+  </div>
+  <div class="info card-footer text-muted">
+  </div>
+</div>
+</div>
+<br><br>
+<div class='resume'>
+  <div class="resume card" style="width: 44rem; left:652px">
+  <div class="resume card-header">
+    <h4>Резюме</h4>
+  </div>
+  <div class="card-body">
+    <ul>
+      <li>Я работал тут</li>
+      <li>И тут</li>
+      <li>А тут не работал</li>
+    </ul>
+  </div>
+  <div class="resume card-footer text-muted">
+  </div>
+</div>
+<br>
+  <div class="resume card" style="width: 44rem; left:652px">
+  <div class="resume card-header">
+    <h4>Образование</h4>
+  </div>
+  <div class="card-body">
+    <ul>
+      <li>Высшее енотское образование</li>
+      <li>Низшее енотское образование</li>
+    </ul>
+  </div>
+  <div class="resume card-footer text-muted">
+  </div>
+</div>
+</div>
 <div class="d-flex align-items-stretch">
   <div class="pe-auto" style="width: 35000px;">
     <div class="card" style="width: 61rem;">
@@ -14,21 +81,18 @@
             <th scope="col">Навыки</th>
             <th scope="col">Опыт</th>
             <th scope="col">Оплата в час</th>
-            {{!-- <th scope="col">img</th> --}}
           </tr>
         </thead>
         <tbody>
-          &nbsp
+          {{!-- &nbsp --}}
           <tr>
             <th scope="row">{{mentor.name}}</th>
             <td>{{mentor.email}}</td>
             <td>{{mentor.tel}}</td>
-            <td>{{mentor.domain}}</td>
             <td>{{mentor.competencies}}</td>
+            <td>{{mentor.domain}}</td>
             <td>{{mentor.experience}}</td>
-            <td>{{mentor.payPerHour}}</td>
-            <img src="{{mentor.img}}" width="300" height="300">
-            <td></td>
+            <td>{{mentor.payPerHour}} руб/ч</td>
             <td></td>
             <td></td>
           </tr>

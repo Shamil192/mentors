@@ -1,5 +1,7 @@
 const Mentor = require("../models/mentor");
 const bcrypt = require("bcrypt");
+require('dotenv').config()
+const {salt} = process.env
 // var multer = require('multer')
 // const { v4 } = require('uuid');
 
@@ -9,7 +11,7 @@ function mentorSignUpRender(req, res) {
 async function mentorSignUp(req, res) {
   const img = '/images/' + req.file.filename
   const { name, email, password, domain, payPerHour, tel, experience } = req.body
-  console.log(req.body, img)
+
   try {
     if (
       name &&
@@ -19,14 +21,15 @@ async function mentorSignUp(req, res) {
       experience &&
       payPerHour &&
       domain &&
-      img
-
+      img &&
+      domain
     ) {
-      const hashedPassword = await bcrypt.hash(password, 10);
+      const hashedPassword = await bcrypt.hash(password, Number(salt));
       const newMentor = await Mentor.create({
         name,
         email,
         password: hashedPassword,
+        competencies: ['HTML'],
         domain,
         tel,
         experience,
@@ -122,14 +125,18 @@ async function mentorEditRender(req, res) {
 // console.log(mentorEditRender)
 
 async function mentorEdit(req, res) {
-  const { name, email, tel, password, domain, experience, } = req.body;
+
+  const { name, email, tel, password, domain, experience, payPerHour, } = req.body;
+  const competenciesArr = req.body.competencies;
+  const competencies = competenciesArr.split(' ');
+
   const id = req.session?.mentor?.id
   // console.log(ID);
   const mentor = await Mentor.findOne({ _id: id });
   try {
     await Mentor.findByIdAndUpdate(
       mentor._id,
-      { name, email, tel, password, domain, experience },
+      { name, email, tel, password, domain, experience, payPerHour, competencies },
       { new: true })
 
     return res.redirect(`/mentor/${mentor._id}`);
@@ -144,14 +151,25 @@ async function mentorEdit(req, res) {
 
 async function mentorShowAll(req, res) {
   const mentorAll = await Mentor.find();
-  res.render("mentors/mentorAll", { mentorAll });
+  const uniqueCompetencies = Array.from(new Set(mentorAll.map(x => x.competencies).flat()))
+  res.render("mentors/mentorAll", { mentorAll, uniqueCompetencies });
 }
 
 async function searchMentors(req, res) {
   const mentors = await Mentor.find({ name: req.body.name })
   console.log(mentors)
-
-  res.json(mentors)
+}
+async function searchMentors(req, res) {
+  // const mentors = await Mentor.find({ name: req.body.name })
+  console.log(req.body)
+  if (req.body.command !== 1) {
+    const mentorSkillFilter = await Mentor.find({ competencies: req.body.command })
+    return res.json(mentorSkillFilter)
+  } else if (req.body.command === 1) {
+    const mentorFilter = await Mentor.find()
+    return res.json(mentorFilter)
+  }
+  res.sendStatus(500)
 }
 module.exports = {
   mentorSignUpRender,
@@ -165,6 +183,4 @@ module.exports = {
   mentorEdit,
   mentorShowAll,
   searchMentors,
-
-
 };
