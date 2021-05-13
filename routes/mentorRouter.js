@@ -1,5 +1,4 @@
 const mentorRouter = require('express').Router();
-
 const {
   mentorSignUpRender,
   mentorSignUp,
@@ -13,7 +12,38 @@ const {
   mentorShowAll,
   searchMentors,
 } = require('../controllers/mentorControllers');
+
 const { checkAuth } = require('../middleware/resLocals');
+
+
+
+var multer = require('multer')
+
+const { v4 } = require('uuid');
+
+
+
+
+var storage = multer.diskStorage({
+
+
+  destination: function (req, file, cb) {
+    cb(null, 'public/images')
+  },
+
+
+  filename: function (req, file, cb) {
+    // console.log(' file ==>', file);
+    const newFileName = v4() + '.' + file.originalname.split('.')[1]
+    // console.log(' file ==>', newFileName);
+    cb(null, newFileName)
+  }
+
+
+})
+
+var upload = multer({ storage })
+
 
 mentorRouter.route('/showall')
   .get(mentorShowAll)
@@ -22,7 +52,7 @@ mentorRouter.route('/showall')
 
 mentorRouter.route('/signup')
   .get(mentorSignUpRender)
-  .post(mentorSignUp)
+  .post(upload.single('avatar'), mentorSignUp)
 
 mentorRouter.route('/signin')
   .get(mentorSignInRender)
