@@ -1,7 +1,7 @@
 const Mentor = require("../models/mentor");
 const bcrypt = require("bcrypt");
 require('dotenv').config()
-const {salt} = process.env
+const { salt } = process.env
 // var multer = require('multer')
 // const { v4 } = require('uuid');
 
@@ -104,13 +104,13 @@ async function mentorProfile(req, res) {
 async function mentorDeleteProfile(req, res) {
   try {
     await Mentor.findByIdAndDelete(req.session.mentor.id);
-    res.redirect('/');
+    return res.redirect('/');
   } catch (error) {
     const newError = new Error(error);
     return res.render('mentors/mentorLC', { error: newError.message });
   }
 
-  return res.redirect(`/mentor/${mentor._id}`);
+
 }
 // console.log(mentorDeleteProfile)
 

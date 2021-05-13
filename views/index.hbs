@@ -26,59 +26,21 @@
     justify-content: space-evenly;
     display: flex;
 ">
+{{#each mentors}}
   <div class="card" style="width: 11rem; height: 20rem">
-    <img src="{{this.img}}" class="card-img-top" alt="..." name="avatar">
+    <img src="{{this.img}}" class="card-img-top"  name="avatar">
     <div class="card-body py-0">
-      <p class="card-title">имя ментора</p>
-      <p class="card-text">краткая инфа</p>
+      <p class="card-title">{{this.name}}</p>
+      <p class="card-text">{{this.domain}}</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Тэги</li>
+      <li class="list-group-item">{{this.competencies}}</li>
     </ul>
     <div class="card-body py-0">
-      <a href="#" class="card-link">кнопка перехода в его профиль</a>
+      <a href="/mentor/{{this.id}}" class="card-link">перейти  в его профиль</a>
     </div>
   </div>
-  <div class="card" style="width: 11rem; height: 20rem">
-    <img src="{{this.img}}" class="card-img-top" alt="..." name="avatar">
-    <div class="card-body py-0">
-      <p class="card-title">имя ментора</p>
-      <p class="card-text">краткая инфа</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Тэги</li>
-    </ul>
-    <div class="card-body py-0">
-      <a href="#" class="card-link">кнопка перехода в его профиль</a>
-    </div>
-  </div>
-  <div class="card" style="width: 11rem; height: 20rem">
-    <img src="{{this.img}}" class="card-img-top" alt="..." name="avatar">
-    <div class="card-body py-0">
-      <p class="card-title">имя ментора</p>
-      <p class="card-text">краткая инфа</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Тэги</li>
-    </ul>
-    <div class="card-body py-0">
-      <a href="#" class="card-link">кнопка перехода в его профиль</a>
-    </div>
-  </div>
-  <div class="card" style="width: 11rem; height: 20rem">
-    <img src="{{this.img}}" class="card-img-top" alt="..." name="avatar">
-    <div class="card-body py-0">
-      <p class="card-title">имя ментора</p>
-      <p class="card-text">краткая инфа</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Тэги</li>
-    </ul>
-    <div class="card-body py-0">
-      <a href="#" class="card-link">кнопка перехода в его профиль</a>
-    </div>
-  </div>
-
+{{/each}}
 </div>
 
 <br>
