@@ -1,5 +1,7 @@
 const Mentor = require("../models/mentor");
 const bcrypt = require("bcrypt");
+require('dotenv').config()
+const {salt} = process.env
 // var multer = require('multer')
 // const { v4 } = require('uuid');
 
@@ -22,7 +24,7 @@ async function mentorSignUp(req, res) {
       img &&
       domain
     ) {
-      const hashedPassword = await bcrypt.hash(password, 10);
+      const hashedPassword = await bcrypt.hash(password, Number(salt));
       const newMentor = await Mentor.create({
         name,
         email,
