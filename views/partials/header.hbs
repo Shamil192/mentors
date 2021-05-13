@@ -8,14 +8,21 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="mentor/signup">Sign up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mentor/signin">Sign in</a>
+          <a class="nav-link" href="http://localhost:3000/mentor/showall">Все чуваки</a>
         </li>
         {{#if mentor}}
         <li class="nav-item">
-          <a class="nav-link" href="mentor/signout">Log out</a>
+          <a class="nav-link" href="http://localhost:3000/mentor/{{mentor.id}}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/mentor/signout">Log out</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost:3000/mentor/signup">Sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/mentor/signin">Sign in</a>
         </li>
         {{/if}}
       </ul>

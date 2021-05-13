@@ -14,7 +14,12 @@ const options = {
 }
 
 
-const { DB_HOST, DB_NAME, DB_PORT, secretKey } = process.env
+const DB_HOST = 'localhost';
+const DB_NAME = 'Mentors';
+const DB_PORT = 27017;
+const secretKey = 'dasdasdasdsad';
+
+
 const dbConnectionURL = `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`
 
 const sessionConfig = {
