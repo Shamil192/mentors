@@ -1,0 +1,17 @@
+<h1> Менторы туточки!</h1>
+<p>Поищи себе ментоар</p>
+<form name='filterForm' method="POST">
+  <input name='name' type="text">
+  <button>срочно ищи!</button>
+</form>
+<ul id='allMentors'>
+  {{#each mentorAll}}
+  <li>
+    <div>
+      <p>Ментор: {{this.name}}</p>
+      <p>Опыт работы: {{this.experience}}</p>
+      <p>Стоимость занятий: {{this.payPerHour}} руб/ч</p>
+    </div>
+  </li>
+  {{/each}}
+</ul>

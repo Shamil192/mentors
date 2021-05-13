@@ -1,0 +1,45 @@
+{{!-- личный кабинет ментора --}}
+<div class="d-flex align-items-stretch">
+  <div class="pe-auto" style="width: 35000px;">
+    <div class="card" style="width: 61rem;">
+      <h4> Анкета Ментора </h4>
+      <hr>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Тел</th>
+            <th scope="col">Сфера деятельности</th>
+            <th scope="col">Навыки</th>
+            <th scope="col">Опыт</th>
+            <th scope="col">Оплата в час</th>
+            {{!-- <th scope="col">img</th> --}}
+          </tr>
+        </thead>
+        <tbody>
+          &nbsp
+          <tr>
+            <th scope="row">{{mentor.name}}</th>
+            <td>{{mentor.email}}</td>
+            <td>{{mentor.tel}}</td>
+            <td>{{mentor.domain}}</td>
+            <td>{{mentor.competencies}}</td>
+            <td>{{mentor.experience}}</td>
+            <td>{{mentor.payPerHour}}</td>
+            <img src="{{mentor.img}}" width="300" height="300">
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      {{#if mentor}}
+      <div>
+        <a class="btn btn-success" href="/mentor/edit/{{mentor.id}}">Изменить</a>
+        <a type="button" class="btn btn-danger" href="/mentor/delete/{{mentor.id}}">Удалить</a>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
