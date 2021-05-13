@@ -66,44 +66,36 @@
   </div>
 </div>
 </div>
-<div class="d-flex align-items-stretch">
-  <div class="pe-auto" style="width: 35000px;">
-    <div class="card" style="width: 61rem;">
-      <h4> Анкета Ментора </h4>
-      <hr>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Тел</th>
-            <th scope="col">Сфера деятельности</th>
-            <th scope="col">Навыки</th>
-            <th scope="col">Опыт</th>
-            <th scope="col">Оплата в час</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{!-- &nbsp --}}
-          <tr>
-            <th scope="row">{{mentor.name}}</th>
-            <td>{{mentor.email}}</td>
-            <td>{{mentor.tel}}</td>
-            <td>{{mentor.competencies}}</td>
-            <td>{{mentor.domain}}</td>
-            <td>{{mentor.experience}}</td>
-            <td>{{mentor.payPerHour}} руб/ч</td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+
       {{#if mentor}}
+<div class = 'table ' style="width: 300px;position: relative;left: 165px;bottom: 24rem;">
+ <table class="table table-hover table-bordered">
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Имя</th> <th scope="col">{{mentor.name}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Эл. почта</th> <th scope="col">{{mentor.email}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Телефон</th> <th scope="col">{{mentor.tel}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Сфера</th> <th scope="col">{{mentor.competencies}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Навыка</th> <th scope="col">{{mentor.domain}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Опыт</th> <th scope="col">{{mentor.experience}} </th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Оплата</th> <th scope="col">{{mentor.payPerHour}} руб/ч</th>  
+   </tr>
+</table>
       <div>
         <a class="btn btn-success" href="/mentor/edit/{{mentor.id}}">Изменить</a>
         <a type="button" class="btn btn-danger" href="/mentor/delete/{{mentor.id}}">Удалить</a>
       </div>
       {{/if}}
-    </div>
-  </div>
+
 </div>
