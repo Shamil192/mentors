@@ -6,7 +6,6 @@ function mentorSignUpRender(req, res) {
 async function mentorSignUp(req, res) {
   const { name, email, password, domain, payPerHour, tel, experience } = req.body
 
-
   try {
     if (
       name &&
@@ -16,13 +15,13 @@ async function mentorSignUp(req, res) {
       experience &&
       payPerHour &&
       domain
-
     ) {
       const hashedPassword = await bcrypt.hash(password, 10);
       const newMentor = await Mentor.create({
         name,
         email,
         password: hashedPassword,
+        competencies: ['HTML'],
         domain,
         tel,
         experience,
@@ -117,14 +116,17 @@ async function mentorEditRender(req, res) {
 // console.log(mentorEditRender)
 
 async function mentorEdit(req, res) {
-  const { name, email, tel, password, domain, experience } = req.body;
+  const { name, email, tel, password, domain, experience, payPerHour, } = req.body;
+  const competenciesArr = req.body.competencies;
+  const competencies = competenciesArr.split(' ');
+
   const id = req.session?.mentor?.id
   // console.log(ID);
   const mentor = await Mentor.findOne({ _id: id });
   try {
     await Mentor.findByIdAndUpdate(
       mentor._id,
-      { name, email, tel, password, domain, experience },
+      { name, email, tel, password, domain, experience, payPerHour, competencies },
       { new: true })
 
     return res.redirect(`/mentor/${mentor._id}`);
@@ -139,14 +141,14 @@ async function mentorEdit(req, res) {
 
 async function mentorShowAll(req, res) {
   const mentorAll = await Mentor.find();
-  const uniqueCompetencies = Array.from(new Set(mentorAll.map(x=> x.competencies).flat())) 
+  const uniqueCompetencies = Array.from(new Set(mentorAll.map(x => x.competencies).flat()))
   res.render("mentors/mentorAll", { mentorAll, uniqueCompetencies });
 }
 
 async function searchMentors(req, res) {
   const mentors = await Mentor.find({ name: req.body.name })
   console.log(mentors)
-
+}
 async function searchMentors(req, res) {
   // const mentors = await Mentor.find({ name: req.body.name })
   console.log(req.body)
@@ -171,4 +173,4 @@ module.exports = {
   mentorEdit,
   mentorShowAll,
   searchMentors,
-};
+}
