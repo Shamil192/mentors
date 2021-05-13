@@ -10,8 +10,15 @@
         <class class="container-fluid">
           <h3>Подбери себе ментора</h3>
         </class>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="React, JavaScript ..." aria-label="Search">
+        <form action="/mentor/showall/serch" method="POST" class="d-flex">
+           <select id="select" name='competencies'>
+            <option disabled selected>Выберите компетенции</option>
+            {{#each uniqueCompetencies}}
+              <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+
+          {{!-- <input name='' class="form-control me-2" type="search" placeholder="React, JavaScript ..." aria-label="Search"> --}}
           <button class="btn btn-outline-success" type="submit">Найти</button>
         </form>
       </div>
