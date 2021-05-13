@@ -16,6 +16,13 @@ async function resLocals(req, res, next) {
   next()
 }
 
+const checkAdmin = (req, res, next) => {
+  if (req.userRole === 'admin') {
+    return next();
+  }
+  return res.redirect('/');
+};
+
 const checkAuth = (req, res, next) => {
   const userId = req.session?.mentor?.id // ? - оператор опциональной последовательности 
   if (userId) {
@@ -59,4 +66,5 @@ module.exports = {
   createErr,
   cathErrAndSendAnswer,
   checkAuth,
+  checkAdmin,
 }

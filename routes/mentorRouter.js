@@ -14,7 +14,7 @@ const {
   searchMentorsMain,
 } = require('../controllers/mentorControllers');
 
-const { checkAuth } = require('../middleware/resLocals');
+const { checkAuth, checkAdmin } = require('../middleware/resLocals');
 
 
 
