@@ -6,21 +6,23 @@ function mentorSignUpRender(req, res) {
 }
 
 async function mentorSignUp(req, res) {
-  const { name, email, password, experience } = req.body
+  const { name, email, password, tel, experience, domain, competencies } = req.body
   try {
     if (
       name &&
       email &&
       password &&
-      experience
-
+      experience &&
+      tel &&
+      domain &&
+      competencies
     ) {
       const hashedPassword = await bcrypt.hash(password, 10);
       const newMentor = await Mentor.create({
         name,
         email,
         password: hashedPassword,
-        competencies: "React",
+        competencies,
         experience,
         payPerHour: 1000,
         role: "mentor"

@@ -27,9 +27,5 @@ if (filterForm) {
       </div>
     </li>`
     });
-
-
-
-
   })
 }

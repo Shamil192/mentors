@@ -12,7 +12,7 @@ const mentorSchema = Schema({
     unique: true,
   },
   tel: {
-    type: Number,
+    type: String,
   },
   password: {
     type: String,
@@ -23,7 +23,6 @@ const mentorSchema = Schema({
   },
   competencies: {
     type: Array,
-    default: ["React"],
   },
   experience: {
     type: Number,
