@@ -3,8 +3,9 @@ const Mentor = require('../models/mentor');
 const IndexRouter = require('express').Router();
 IndexRouter.get("/", async (req, res) => {
   const mentorAll = await Mentor.find();
+  const mentors = mentorAll;
   const uniqueCompetencies = Array.from(new Set(mentorAll.map(x => x.competencies).flat()))
-  res.render("index", { uniqueCompetencies });
+  res.render("index", { mentors, uniqueCompetencies });
 
 });
 
