@@ -23,10 +23,10 @@ const mentorSchema = Schema({
     type: String,
     required: true,
   },
-  // competencies: {
-  //   type: Array,
-  //   required: true,
-  // },
+  competencies: {
+    type: Array,
+    required: true,
+  },
   experience: {
     type: Number,
     required: true,

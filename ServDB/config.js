@@ -14,13 +14,9 @@ const options = {
 }
 
 
-const DB_HOST = 'localhost';
-const DB_NAME = 'Mentors';
-const DB_PORT = 27017;
-const secretKey = 'dasdasdasdsad';
+const {DB_HOST, DB_NAME, DB_PORT, secretKey, mongoDBurl} = process.env
 
-
-const dbConnectionURL = `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`
+const dbConnectionURL = process.env.NODE_ENV === "production" ? mongoDBurl : `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`
 
 const sessionConfig = {
   name: app.get('cookiname'),

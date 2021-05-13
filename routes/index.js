@@ -1,11 +1,13 @@
+const Mentor = require('../models/mentor');
 
 const IndexRouter = require('express').Router();
-IndexRouter.get("/", (req, res) => {
-  res.render("index");
+IndexRouter.get("/", async (req, res) => {
+  const mentors = await Mentor.find()
+  res.render("index", { mentors });
 });
 
-// IndexRouter.post('/', upload.single('avatar'), async (req, res) => {
-// })
+
 
 module.exports = IndexRouter
+
 
