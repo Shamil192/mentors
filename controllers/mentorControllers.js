@@ -5,6 +5,8 @@ function mentorSignUpRender(req, res) {
 }
 async function mentorSignUp(req, res) {
   const { name, email, password, domain, payPerHour, tel, experience } = req.body
+
+
   try {
     if (
       name &&
@@ -49,6 +51,8 @@ function mentorSignInRender(req, res) {
 }
 async function mentorSignIn(req, res) {
   const { email, password } = req.body;
+  console.log(req.body)
+
   try {
     if (email && password) {
       const currentMentor = await Mentor.findOne({ email });
