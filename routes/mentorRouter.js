@@ -7,6 +7,9 @@ const {
   mentorSignIn,
   mentorSignOut,
   mentorProfile,
+  mentorDeleteProfile,
+  mentorEditRender,
+  mentorEdit,
   mentorShowAll,
   searchMentors,
 } = require('../controllers/mentorControllers');
@@ -15,6 +18,7 @@ const { checkAuth } = require('../middleware/resLocals');
 mentorRouter.route('/showall')
   .get(mentorShowAll)
   .post(searchMentors)
+
 
 mentorRouter.route('/signup')
   .get(mentorSignUpRender)
@@ -30,11 +34,11 @@ mentorRouter.route('/signout')
 mentorRouter.route('/:id')
   .get(checkAuth, mentorProfile)
 
-// mentorRouter.route('/delete/:id')
-//   .get(profiDeleteProfile)
+mentorRouter.route('/delete/:id')
+  .get(mentorDeleteProfile)
 
-// mentorRouter.route('/edit/:id')
-//   .get(profiEditRender)
-//   .post(profiEdit)
+mentorRouter.route('/edit/:id')
+  .get(mentorEditRender)
+  .post(mentorEdit)
 
 module.exports = mentorRouter
