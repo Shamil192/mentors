@@ -1,66 +1,43 @@
-{{!-- личный кабинет эксперта --}}
-
-
-
-
-
+{{!-- личный кабинет ментора --}}
 <div class="d-flex align-items-stretch">
-
   <div class="pe-auto" style="width: 35000px;">
     <div class="card" style="width: 61rem;">
-      <div class="alert alert-success" role="alert">
-
-
-
-        <h4> Анкета специалиста</h4>
-        <hr>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Тел</th>
-              <th scope="col">Сфера деятельности</th>
-              <th scope="col">Навыки</th>
-              <th scope="col">Опыт</th>
-              <th scope="col">Оплата в час</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            &nbsp
-            <tr>
-
-              <th scope="row">{{mentor.name}}</th>
-              <td>{{mentor.email}}</td>
-              <td>{{mentor.tel}}</td>
-              <td>{{mentor.domain}}</td>
-              <td>{{mentor.competencies}}</td>
-              <td>{{mentor.experience}}</td>
-              <td>{{mentor.payPerHour}}</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-
-          </tbody>
-        </table>
-
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Редактировать Анкету
-          </button>
-          <h1>
-            <p class="card-text"></p>
-          </h1>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="/mentor/edit/{{mentor.id}}">Изменить</a></li>
-            <li><a class="dropdown-item" href="/mentor/delete/{{mentor.id}}">Удалить</a></li>
-
-          </ul>
-        </div>
+      <h4> Анкета Ментора </h4>
+      <hr>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Тел</th>
+            <th scope="col">Сфера деятельности</th>
+            <th scope="col">Навыки</th>
+            <th scope="col">Опыт</th>
+            <th scope="col">Оплата в час</th>
+          </tr>
+        </thead>
+        <tbody>
+          &nbsp
+          <tr>
+            <th scope="row">{{mentor.name}}</th>
+            <td>{{mentor.email}}</td>
+            <td>{{mentor.tel}}</td>
+            <td>{{mentor.domain}}</td>
+            <td>{{mentor.competencies}}</td>
+            <td>{{mentor.experience}}</td>
+            <td>{{mentor.payPerHour}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      {{#if mentor}}
+      <div>
+        <button type="button" class="btn btn-success" href="/mentor/edit/{{mentor.id}}">Изменить</button>
+        <button type="button" class="btn btn-danger" href="/mentor/edit/{{mentor.id}}">Удалить</button>
       </div>
+      {{/if}}
     </div>
   </div>
 </div>

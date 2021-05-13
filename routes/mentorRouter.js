@@ -6,12 +6,10 @@ const {
   mentorSignInRender,
   mentorSignIn,
   mentorSignOut,
-  mentorProfile
-
-  // profiShowAll,
-  // profiDeleteProfile,
-  // profiEditRender,
-  // profiEdit
+  mentorProfile,
+  mentorDeleteProfile,
+  mentorEditRender,
+  mentorEdit
 } = require('../controllers/mentorControllers')
 
 mentorRouter.route('/signup')
@@ -31,11 +29,11 @@ mentorRouter.route('/mentor/signout')
 mentorRouter.route('/:id')
   .get(mentorProfile)
 
-// mentorRouter.route('/delete/:id')
-//   .get(profiDeleteProfile)
+mentorRouter.route('/delete/:id')
+  .get(mentorDeleteProfile)
 
-// mentorRouter.route('/edit/:id')
-//   .get(profiEditRender)
-//   .post(profiEdit)
+mentorRouter.route('/edit/:id')
+  .get(mentorEditRender)
+  .post(mentorEdit)
 
 module.exports = mentorRouter
