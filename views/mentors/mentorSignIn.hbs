@@ -13,9 +13,10 @@
             <i class="fa fa-lock"></i>
             <input name="password" type="password" class="form-control" placeholder="пароль">
           </div>
-          <div>
-            {{error}}
-          </div>
+          {{#if error}}
+          <div>{{error}}</div>
+          </br>
+          {{/if}}
           <button id="signUpManager" class=" mylink form-check btn btn-primary mt-4 signup">Войти</button>
         </div>
       </div>

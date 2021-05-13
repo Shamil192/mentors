@@ -4,23 +4,21 @@ function mentorSignUpRender(req, res) {
   res.render("mentors/mentorSignUp");
 }
 async function mentorSignUp(req, res) {
-  const { name, email, password, tel, experience, domain, competencies } = req.body
+  const { name, email, password, experience } = req.body
   try {
     if (
       name &&
       email &&
       password &&
-      experience &&
-      tel &&
-      domain &&
-      competencies
+      experience
+
     ) {
       const hashedPassword = await bcrypt.hash(password, 10);
       const newMentor = await Mentor.create({
         name,
         email,
         password: hashedPassword,
-        competencies,
+        competencies: "React",
         experience,
         payPerHour: 1000,
         role: "mentor"
@@ -35,8 +33,12 @@ async function mentorSignUp(req, res) {
       }
     }
   } catch (error) {
-    console.log(error);
+
+    const newError = new Error(error);
+    return res.render('mentors/mentorSignUp', { error: newError.message });
   }
+
+  return res.redirect('/');
 }
 function mentorSignInRender(req, res) {
   res.render("mentors/mentorSignIn");
@@ -60,47 +62,72 @@ async function mentorSignIn(req, res) {
       }
     }
   } catch (error) {
-    console.log(error);
+
+    const newError = new Error(error);
+    return res.render('mentors/mentorSignIn', { error: newError.message });
   }
+
+  return res.redirect('/');
 }
+
 async function mentorSignOut(req, res) {
-  req.session.destroy(() => {
-    res.clearCookie(req.app.get("cookieName"));
-    res.redirect("/");
-  });
+  req.session.destroy((err) => {
+    if (err) return res.redirect('/');
+
+    res.clearCookie(req.app.get('cookieName'));
+    return res.redirect('/');
+  })
 }
+
 async function mentorProfile(req, res) {
   const mentorId = req.params.id
   const mentor = await Mentor.findOne({ _id: mentorId })
   res.render('mentors/mentorLC', { mentor });
 };
+
 async function mentorDeleteProfile(req, res) {
   try {
     console.log(req.params.id);
-    await Mentor.findByIdAndDelete({ _id: req.params.id });
-
-
+    await Mentor.findByIdAndDelete(req.session.user.id);
     res.redirect('/');
   } catch (error) {
-    console.log(error);
+    const newError = new Error(error);
+    return res.render('mentors/mentorLC', { error: newError.message });
   }
+
+  return res.redirect(`/mentor/${mentor._id}`);
 }
+// console.log(mentorDeleteProfile)
+
+
+
 async function mentorEditRender(req, res) {
   const a = req.params.id;
-  const currentProfi = await Mentor.findOne({ _id: a });
-  res.render("mentors/mentorEdit", { currentProfi });
+  const mentor = await Mentor.findOne({ _id: a });
+  res.render("mentors/mentorEdit", { mentor });
+  // console.log('-------', mentor)
 }
+// console.log(mentorEditRender)
+
 async function mentorEdit(req, res) {
-  const { ID, name, email, tel, password, domain, experience } = req.body;
-  console.log(ID);
-  const currentProfi = await Mentor.findOne({ _id: ID });
-  await Mentor.findByIdAndUpdate(
-    currentProfi._id,
-    { name, email, tel, password, domain, experience },
-    { new: true }
-  );
-  res.redirect(`/mentor/${currentProfi._id}`);
+  const { name, email, tel, password, domain, experience } = req.body;
+  const id = req.session?.mentor?.id
+  // console.log(ID);
+  const mentor = await Mentor.findOne({ _id: id });
+  try {
+    await Mentor.findByIdAndUpdate(
+      mentor._id,
+      { name, email, tel, password, domain, experience },
+      { new: true })
+
+    return res.redirect(`/mentor/${mentor._id}`);
+  } catch (error) {
+    const newError = new Error(error);
+    return res.render('mentors/mentorEdit', { error: newError.message });
+  }
+
 }
+// console.log(mentorEdit)
 
 
 async function mentorShowAll(req, res) {
@@ -110,12 +137,10 @@ async function mentorShowAll(req, res) {
 
 async function searchMentors(req, res) {
   const mentors = await Mentor.find({ name: req.body.name })
-  console.log()
+  console.log(mentors)
 
   res.json(mentors)
 }
-
-
 module.exports = {
   mentorSignUpRender,
   mentorSignUp,
@@ -123,12 +148,9 @@ module.exports = {
   mentorSignIn,
   mentorSignOut,
   mentorProfile,
-
   mentorDeleteProfile,
   mentorEditRender,
-  mentorEdit
-
+  mentorEdit,
   mentorShowAll,
   searchMentors,
-
 };

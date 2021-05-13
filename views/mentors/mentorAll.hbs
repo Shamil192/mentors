@@ -5,13 +5,13 @@
   <button>срочно ищи!</button>
 </form>
 <ul id='allMentors'>
-{{#each mentorAll}}
-<li>
-  <div> 
-    <p>Ментор: {{this.name}}</p>
-    <p>Опыт работы: {{this.experience}}</p>
-    <p>Стоимость занятий: {{this.payPerHour}} руб/ч</p>
-  </div>
-</li>
-{{/each}}
+  {{#each mentorAll}}
+  <li>
+    <div>
+      <p>Ментор: {{this.name}}</p>
+      <p>Опыт работы: {{this.experience}}</p>
+      <p>Стоимость занятий: {{this.payPerHour}} руб/ч</p>
+    </div>
+  </li>
+  {{/each}}
 </ul>

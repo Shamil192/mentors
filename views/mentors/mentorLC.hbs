@@ -34,8 +34,8 @@
       </table>
       {{#if mentor}}
       <div>
-        <button type="button" class="btn btn-success" href="/mentor/edit/{{mentor.id}}">Изменить</button>
-        <button type="button" class="btn btn-danger" href="/mentor/edit/{{mentor.id}}">Удалить</button>
+        <a class="btn btn-success" href="/mentor/edit/{{mentor.id}}">Изменить</a>
+        <a type="button" class="btn btn-danger" href="/mentor/delete/{{mentor.id}}">Удалить</a>
       </div>
       {{/if}}
     </div>

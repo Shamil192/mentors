@@ -1,59 +1,59 @@
-<form id="formSignUpMentor" method="POST" action="/mentor/edit/{{currentProfi.id}}">
+<h4>Редактирование</h4>
+<form id="formSignUpMentor" method="POST" action='/mentor/edit/{{mentor.id}}'>
   <div class="container mt-5 mb-5">
     <div class="row d-flex align-items-center justify-content-center">
       <div class="col-md-6">
         <div class="card px-5 py-5"></span>
-          <h5 class="mt-3"> Форма регистрации для профессионалов</h5> <small class="mt-2 text-muted"></small>
+          <h5 class="mt-3">Редактировать</h5> <small class="mt-2 text-muted"></small>
           <div class="form-input">
             <i class="fa fa-user"></i>
             <p class="mt-0">Введите новое ФИО</p> <small class="mt-2 text-muted"></small>
-            <input name="name" type="text" class="form-control" placeholder="ФИО" value={{currentProfi.name}}>
+            <input name="name" type="text" class="form-control" placeholder="ФИО" value={{mentor.name}}>
           </div>
           <div class="form-input">
             <i class="fa fa-envelope"></i>
             <p class="mt-0">Введите новый тел</p> <small class="mt-2 text-muted"></small>
-            <input name="tel" type="text" class="form-control" placeholder="Тел" value={{currentProfi.tel}}>
+            <input name="tel" type="text" class="form-control" placeholder="Тел" value={{mentor.tel}}>
           </div>
           <div class="form-input">
             <i class="fa fa-envelope"></i>
             <p class="mt-0">Введите новый email</p> <small class="mt-2 text-muted"></small>
-            <input name="email" type="email" class="form-control" placeholder="Email" value={{currentProfi.email}}>
+            <input name="email" type="email" class="form-control" placeholder="Email" value={{mentor.email}}>
           </div>
           <div class="form-input">
             <i class="fa fa-lock"></i>
             <p class="mt-0">Введите новый пароль</p> <small class="mt-2 text-muted"></small>
-            <input name="password" type="password" class="form-control" placeholder="пароль"
-              value={{currentProfi.password}}>
+            <input name="password" type="password" class="form-control" placeholder="пароль" value={{mentor.password}}>
           </div>
           <div class="form-input">
             <i class="fa fa-user"></i>
             <p class="mt-0"> Изменит Сферу деятельности</p> <small class="mt-2 text-muted"></small>
             <input name="domain" type="text" class="form-control" placeholder="Сфера деятельности"
-              value={{currentProfi.domain}}>
+              value={{mentor.domain}}>
           </div>
-          {{!-- <div class="form-input">
+          <div class="form-input">
             <i class="fa fa-user"></i>
             <p class="mt-0"> Добавить Навыки</p> <small class="mt-2 text-muted"></small>
             <input name="competencies" type="text" class="form-control" placeholder="Навыки"
-              value={{currentProfi.competencies}}> --}}
+              value={{mentor.competencies}}>
           </div>
           <div class="form-input">
             <i class="fa fa-user"></i>
             <p class="mt-0"> Изменить Опыт(только число)</p> <small class="mt-2 text-muted"></small>
-            <input name="experience" type="number" class="form-control" placeholder="Опыт"
-              value={{currentProfi.experience}}>
+            <input name="experience" type="number" class="form-control" placeholder="Опыт" value={{mentor.experience}}>
           </div>
-          <input name="ID" type="hidden" class="form-control" placeholder="Опыт" value={{currentProfi._id}}>
-          {{!-- <div class="form-input">
+          <input name="ID" type="hidden" class="form-control" placeholder="Опыт" value={{mentor._id}}>
+          <div class="form-input">
             <i class="fa fa-user"></i>
             <p class="mt-0"> Изменить Оплату за час (в рублях)</p> <small class="mt-2 text-muted"></small>
             <input name="payPerHour" type="text" class="form-control" placeholder="Оплата за час в руб"
-              value={{currentProfi.payPerHour}}>
-          </div> --}}
-          <div>
-            {{error}}
+              value={{mentor.payPerHour}}>
           </div>
-          <button id="editManager" class=" form-check btn btn-primary mt-4 signup">Изменить</button>
+          {{#if error}}
+          <div>{{error}}</div>
+          </br>
+          {{/if}}
+          <button id="editMentor" class=" form-check btn btn-primary mt-4 signup">Изменить</button>
         </div>
       </div>
     </div>
