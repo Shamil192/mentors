@@ -139,14 +139,25 @@ async function mentorEdit(req, res) {
 
 async function mentorShowAll(req, res) {
   const mentorAll = await Mentor.find();
-  res.render("mentors/mentorAll", { mentorAll });
+  const uniqueCompetencies = Array.from(new Set(mentorAll.map(x=> x.competencies).flat())) 
+  res.render("mentors/mentorAll", { mentorAll, uniqueCompetencies });
 }
 
 async function searchMentors(req, res) {
   const mentors = await Mentor.find({ name: req.body.name })
   console.log(mentors)
 
-  res.json(mentors)
+async function searchMentors(req, res) {
+  // const mentors = await Mentor.find({ name: req.body.name })
+  console.log(req.body)
+  if (req.body.command !== 1) {
+    const mentorSkillFilter = await Mentor.find({ competencies: req.body.command })
+    return res.json(mentorSkillFilter)
+  } else if (req.body.command === 1) {
+    const mentorFilter = await Mentor.find()
+    return res.json(mentorFilter)
+  }
+  res.sendStatus(500)
 }
 module.exports = {
   mentorSignUpRender,
