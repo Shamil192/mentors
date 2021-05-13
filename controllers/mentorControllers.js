@@ -1,12 +1,15 @@
 const Mentor = require("../models/mentor");
 const bcrypt = require("bcrypt");
+// var multer = require('multer')
+// const { v4 } = require('uuid');
+
 function mentorSignUpRender(req, res) {
   res.render("mentors/mentorSignUp");
 }
 async function mentorSignUp(req, res) {
+  const img = '/images/' + req.file.filename
   const { name, email, password, domain, payPerHour, tel, experience } = req.body
-
-
+  console.log(req.body, img)
   try {
     if (
       name &&
@@ -15,7 +18,8 @@ async function mentorSignUp(req, res) {
       tel &&
       experience &&
       payPerHour &&
-      domain
+      domain &&
+      img
 
     ) {
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -27,6 +31,7 @@ async function mentorSignUp(req, res) {
         tel,
         experience,
         payPerHour,
+        img,
         role: "mentor"
       });
       if (newMentor) {
@@ -117,7 +122,7 @@ async function mentorEditRender(req, res) {
 // console.log(mentorEditRender)
 
 async function mentorEdit(req, res) {
-  const { name, email, tel, password, domain, experience } = req.body;
+  const { name, email, tel, password, domain, experience, } = req.body;
   const id = req.session?.mentor?.id
   // console.log(ID);
   const mentor = await Mentor.findOne({ _id: id });
@@ -160,4 +165,6 @@ module.exports = {
   mentorEdit,
   mentorShowAll,
   searchMentors,
+
+
 };

@@ -9,7 +9,7 @@ const cors = require('cors');
 const { sessionConfig } = require('./ServDB/config');
 const { resLocals, createErr, cathErrAndSendAnswer } = require('./middleware/resLocals');
 const mentorRouter = require('./routes/mentorRouter');
-
+const IndexRouter = require('./routes/index')
 const app = express();
 
 app.set('view engine', 'hbs');
@@ -31,9 +31,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/mentor', mentorRouter);
-app.get("/", (req, res) => {
-  res.render("index");
-});
+app.use('/', IndexRouter)
+
 
 app.use(createErr);
 app.use(cathErrAndSendAnswer);

@@ -35,6 +35,7 @@ const mentorSchema = Schema({
     type: Number,
     required: true,
   },
+  img: String,
   role: String,
   createdAt: Date,
   updatedAt: Date
