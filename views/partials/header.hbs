@@ -1,124 +1,127 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="/">Mentors</a>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <div class="modal fade" id="exampleModalReg" tabindex="-1" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header"> 
-                <form action="/mentor/signup" method="POST" class="row g-3" enctype="multipart/form-data">
-                  <div class="col-md-6">
-                    <label for="email" class="form-label">Электронная почта</label>
-                    <input name="email" type="email" class="form-control" id="email">
+<header class="header">
+  <div class="container container-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">Mentors</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="modal fade" id="exampleModalReg" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header"> 
+                    <form action="/mentor/signup" method="POST" class="row g-3" enctype="multipart/form-data">
+                      <div class="col-md-6">
+                        <label for="email" class="form-label">Электронная почта</label>
+                        <input name="email" type="email" class="form-control" id="email">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="password" class="form-label">Пароль</label>
+                        <input name="password" type="password" class="form-control" id="password">
+                      </div>
+                      <div class="col-12">
+                        <label for="name" class="form-label">ФИО</label>
+                        <input name="name" type="text" class="form-control" id="name">
+                      </div>
+                      <div class="col-12">
+                        <label for="tel" class="form-label">Контактный телефон</label>
+                        <input name="tel" type="text" class="form-control" id="tel">
+                      </div>
+                      <div class="col-12">
+                        <label for="domaim" class="form-label">Сфера деятельности</label>
+                        <input name="domain" type="text" class="form-control" id="domaim">
+                      </div>
+                      <div class="col-12">
+                        <label for="payPerHour" class="form-label">Оплата за час (в рублях)</label>
+                        <input name="payPerHour" type="number" class="form-control" id="payPerHour">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="experience" class="form-label">Опыт</label>
+                        <input name="experience" type="number" class="form-control" id="experience">
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="file" name="avatar" class="form-control" id="inputGroupFile02">
+                        <label class="input-group-text" for="inputGroupFile02">Загрузить</label>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                      </div>
                   </div>
-                  <div class="col-md-6">
-                    <label for="password" class="form-label">Пароль</label>
-                    <input name="password" type="password" class="form-control" id="password">
-                  </div>
-                  <div class="col-12">
-                    <label for="name" class="form-label">ФИО</label>
-                    <input name="name" type="text" class="form-control" id="name">
-                  </div>
-                  <div class="col-12">
-                    <label for="tel" class="form-label">Контактный телефон</label>
-                    <input name="tel" type="text" class="form-control" id="tel">
-                  </div>
-                  <div class="col-12">
-                    <label for="domaim" class="form-label">Сфера деятельности</label>
-                    <input name="domain" type="text" class="form-control" id="domaim">
-                  </div>
-                  <div class="col-12">
-                    <label for="payPerHour" class="form-label">Оплата за час (в рублях)</label>
-                    <input name="payPerHour" type="number" class="form-control" id="payPerHour">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="experience" class="form-label">Опыт</label>
-                    <input name="experience" type="number" class="form-control" id="experience">
-                  </div>
-                  <div class="input-group mb-3">
-                    <input type="file" name="avatar" class="form-control" id="inputGroupFile02">
-                    <label class="input-group-text" for="inputGroupFile02">Загрузить</label>
-                  </div>
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header"> 
-                <h5 class="modal-title" id="exampleModalLabel">Войти</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              </form>
-              <div>
-                <form id="formSignUpMentor" method="POST" action="/mentor/signin">
-                  <div class="container mt-5 mb-5">
-                    <div class="row d-flex align-items-center justify-content-center">
-                      <div class="col-md-6">
-                        <div class="card px-5 py-5"></span>
-                          <h5 class="fs-3 "></h5>
-                          <h5 class="mt-3"> Форма входа для Менторов</h5> <small class="mt-2 text-muted"></small>
-                          <div class="form-input">
-                            <i class="fa fa-envelope"></i>
-                            <input name="email" type="text" class="form-control" placeholder="Email">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header"> 
+                    <h5 class="modal-title" id="exampleModalLabel">Войти</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  </form>
+                  <div>
+                    <form id="formSignUpMentor" method="POST" action="/mentor/signin">
+                      <div class="container mt-5 mb-5">
+                        <div class="row d-flex align-items-center justify-content-center">
+                          <div class="col-md-6">
+                            <div class="card px-5 py-5"></span>
+                              <h5 class="fs-3 "></h5>
+                              <h5 class="mt-3"> Форма входа для Менторов</h5> <small class="mt-2 text-muted"></small>
+                              <div class="form-input">
+                                <i class="fa fa-envelope"></i>
+                                <input name="email" type="text" class="form-control" placeholder="Email">
+                              </div>
+                              <div class="form-input">
+                                <i class="fa fa-lock"></i>
+                                <input name="password" type="password" class="form-control" placeholder="пароль">
+                              </div>
+                              {{#if error}}
+                              <div>{{error}}</div>
+                              </br>
+                              {{/if}}
+                              <button id="signUpManager"
+                                class=" mylink form-check btn btn-primary mt-6 signup">Войти</button>
+                            </div>
                           </div>
-                          <div class="form-input">
-                            <i class="fa fa-lock"></i>
-                            <input name="password" type="password" class="form-control" placeholder="пароль">
-                          </div>
-                          {{#if error}}
-                          <div>{{error}}</div>
-                          </br>
-                          {{/if}}
-                          <button id="signUpManager"
-                            class=" mylink form-check btn btn-primary mt-6 signup">Войти</button>
                         </div>
                       </div>
-                    </div>
+                    </form>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
-          </div>
+            <li class="nav-item">
+              <a class="nav-link" href="/mentor/showall" style='position:relative; left:734px'>Менторы</a>
+            </li>
+            {{#if mentor}}
+            <li class="nav-item">
+              <a class="nav-link" href="/mentor/{{mentor.id}}" style="
+        position: absolute;
+        right: 111px;
+    ">Профиль</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/mentor/signout" style="
+        position: absolute;
+        right: 39px;
+    ">Выйти</a>
+            </li>
+            {{else}}
+            <div class='hidder' style="position: absolute; right:40px">
+              <button type="button" class="btn btn-light mx-3" data-bs-toggle="modal" data-bs-target="#exampleModalReg"
+                data-bs-whatever="@fat" style='margin-left: 800px'>Стать ментором</button>
+              <button type="button" class="btn btn-light" data-bs-toggle="modal" id='000' data-bs-target="#exampleModal"
+                data-bs-whatever="@fat">Войти</button>
+            {{/if}}
+            </div>
+          </ul>
         </div>
-        <li class="nav-item">
-          <a class="nav-link" href="/mentor/showall" style='position:relative; left:734px'>Менторы</a>
-        </li>
-        {{#if mentor}}
-        <li class="nav-item">
-          <a class="nav-link" href="/mentor/{{mentor.id}}" style="
-    position: absolute;
-    right: 111px;
-">Профиль</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/mentor/signout" style="
-    position: absolute;
-    right: 39px;
-">Выйти</a>
-        </li>
-        {{else}}
-        <div class='hidder' style="position: absolute; right:40px">
-          <button type="button" class="btn btn-light mx-3" data-bs-toggle="modal" data-bs-target="#exampleModalReg"
-            data-bs-whatever="@fat" style='margin-left: 800px'>Стать ментором</button>
-          <button type="button" class="btn btn-light" data-bs-toggle="modal" id='000' data-bs-target="#exampleModal"
-            data-bs-whatever="@fat">Войти</button>
-        {{/if}}
-        </div>
-      </ul>
-    </div>
+      </div>
+    </nav>
   </div>
-</nav>
-<br>
+</header>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>

@@ -1,19 +1,27 @@
-<h1> Менторы туточки!</h1>
-<p>Поищи себе ментоар</p>
-<form name='filterForm' method="POST">
-  <select id="select" name='name'>
-    <option disabled selected>Выберите компетенции</option>
-    {{#each uniqueCompetencies}}
-      <option value="{{this}}">{{this}}</option>
-    {{/each}}
-  </select>
-  <p><input id="costSort" name='sort' type="radio">По стоимости</p>
-  <p><input id="experianceSort" name='sort' type="radio">По опыту</p>
-  <button>срочно ищи!</button>
-</form>
-<ul id='allMentors'>
+<div class="container container-mentors">
+  <h1 class="mentors-title"> Менторы туточки!</h1>
+  <h3 class="mentors-paragraph">Поищи себе ментоар</h3>
+  <form class="mentors-form" name="filterForm" method="POST">
+    <select id="select" name="name">
+      <option disabled selected>Выберите компетенции</option>
+      {{#each uniqueCompetencies}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    <p class="mentors-paragraph">
+      <input id="costSort" name="sort" type="radio" />
+      <span class="mentors-text">По стоимости</span>
+    </p>
+    <p class="mentors-paragraph">
+      <input id="experianceSort" name="sort" type="radio" />
+            <span class="mentors-text">По опыту</span>
+    </p>
+    <button>срочно ищи!</button>
+  </form>
+</div>
+{{! <ul id='allMentors'> }}
 {{#each mentorAll}}
-<li>
+  {{!-- <li>
   <div> 
     <p>Ментор: {{this.name}}</p>
     <p>Опыт работы: {{this.experience}}</p>
@@ -21,5 +29,28 @@
     <p>{{this.competencies}}</p>
   </div>
 </li>
+</ul> --}}
+  <div class="container">
+    <div class="card-content card mb-3 mx-3">
+      <div class="main-blocks-wrapper-mentors-content row g-0">
+        <div class="col-md-4 mentors-block-img">
+          <img class="imgStyle" height="150" width="300" src="{{this.img}}" />
+        </div>
+        <div class="col-md-8 wrapper-mentors-content">
+          <div class="card-body mentors-content">
+            <h5 class="card-title">{{this.name}}</h5>
+            <h2 class="card-title">{{this.payPerHour}}</h2>
+            <h2 class="card-title">{{this.experience}}</h2>
+
+            <p
+              class="card-text"
+            >blablablablablablablablablablablablablablablablablablablabla</p>
+            <p class="card-text"><small
+                class="text-muted"
+              >{{this.competencies}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {{/each}}
-</ul>
