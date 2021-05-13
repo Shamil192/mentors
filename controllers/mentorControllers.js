@@ -159,6 +159,17 @@ async function searchMentors(req, res) {
   const mentors = await Mentor.find({ name: req.body.name })
   console.log(mentors)
 }
+
+async function searchMentorsMain(req, res) {
+  const competencies = req.body.competencies;
+  const mentors = await Mentor.find();
+  const mentorAll = mentors.filter(elem => elem.competencies.includes(competencies))
+
+  const uniqueCompetencies = Array.from(new Set(mentors.map(x => x.competencies).flat()))
+  res.render("mentors/mentorAll", { mentorAll, uniqueCompetencies })
+}
+
+
 async function searchMentors(req, res) {
   // const mentors = await Mentor.find({ name: req.body.name })
   console.log(req.body)
@@ -183,4 +194,5 @@ module.exports = {
   mentorEdit,
   mentorShowAll,
   searchMentors,
+  searchMentorsMain,
 };
