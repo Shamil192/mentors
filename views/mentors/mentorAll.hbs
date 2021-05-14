@@ -4,13 +4,14 @@
 <div class="alert" role="alert">
   Выбери себе наставника 
 </div>
-<select class="form-control" list="datalistOptions" id="exampleDataList" placeholder="React, JavaScript"> </select>
+<select class="form-control" list="datalistOptions" id="exampleDataList" placeholder="React, JavaScript"> 
 <datalist id="datalistOptions">
       <option selected>Все наставники</option>
       {{#each uniqueCompetencies}}
 <option value="{{this}}">{{this}}</option>
       {{/each}}
 </datalist>
+</select>
 <div class="form-check checkk">
   <p class='mentors-paragraph'>
   <input class="form-check-input" type="radio" id="costSort" name ='sort'>
@@ -25,7 +26,7 @@
   </label>
   </p>
 {{!-- <button>Найти</button> --}}
-<button type="button" class="btn btnSearch btn-sm">Найти</button>
+<button class="btn btnSearch btn-primary btn-sm">Найти</button>
 </div>
   </label>
 </p>
