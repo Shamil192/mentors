@@ -1,6 +1,6 @@
 
 const express = require('express');
-// const logger = require('morgan');
+const logger = require('morgan');
 const path = require('path');
 
 const hbs = require('hbs');
@@ -21,7 +21,7 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 // app.use(express.static(path.join(process.cwd() + '/public')));
 
 app.use(session(sessionConfig));
-// app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
