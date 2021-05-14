@@ -12,10 +12,13 @@ const mentorRouter = require('./routes/mentorRouter');
 const IndexRouter = require('./routes/index')
 const app = express();
 
+app.set("trust proxy", 1);
 app.set('view engine', 'hbs');
 app.set('cookieName', 'sid');
 app.set('views', path.join(__dirname, 'views'));
 hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
+// app.set('views', path.join(process.cwd() + '/views'));
+// app.use(express.static(path.join(process.cwd() + '/public')));
 
 app.use(session(sessionConfig));
 // app.use(logger('dev'));
