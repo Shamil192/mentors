@@ -1,5 +1,4 @@
-<div class="container container-mentors">
-  <h1 class="mentors-title"> Менторы туточки!</h1>
+{{!-- <div >
   <h3 class="mentors-paragraph">Поищи себе ментоар</h3>
   <form class="mentors-form" name="filterForm" method="POST">
     <select id="select" name="name">
@@ -14,40 +13,75 @@
     </p>
     <p class="mentors-paragraph">
       <input id="experianceSort" name="sort" type="radio" />
-            <span class="mentors-text">По опыту</span>
+      <span class="mentors-text">По опыту</span>
     </p>
     <button>срочно ищи!</button>
   </form>
-</div>
-{{! <ul id='allMentors'> }}
-{{#each mentorAll}}
-  {{!-- <li>
-  <div> 
-    <p>Ментор: {{this.name}}</p>
-    <p>Опыт работы: {{this.experience}}</p>
-    <p>Стоимость занятий: {{this.payPerHour}} руб/ч</p>
-    <p>{{this.competencies}}</p>
-  </div>
-</li>
-</ul> --}}
-  <div class="container">
-    <div class="card-content card mb-3 mx-3">
-      <div class="main-blocks-wrapper-mentors-content row g-0">
-        <div class="col-md-4 mentors-block-img">
-          <img class="imgStyle" height="150" width="300" src="{{this.img}}" />
-        </div>
-        <div class="col-md-8 wrapper-mentors-content">
-          <div class="card-body mentors-content">
-            <h5 class="card-title">{{this.name}}</h5>
-            <h2 class="card-title">{{this.payPerHour}}</h2>
-            <h2 class="card-title">{{this.experience}}</h2>
+</div> --}}
 
-            <p
-              class="card-text"
-            >blablablablablablablablablablablablablablablablablablablabla</p>
-            <p class="card-text"><small
-                class="text-muted"
-              >{{this.competencies}}</small></p>
+
+  <form class="mentors-form" name="filterForm" method="POST">
+<div class="container container-mentors"> 
+<div class="alert alert-primary" role="alert">
+  Выбери себе наставника 
+</div>
+<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="React, JavaScript">
+<datalist id="datalistOptions">
+      {{#each uniqueCompetencies}}
+<option value="{{this}}">{{this}}</option>
+      {{/each}}
+</datalist>
+<div class='check-container'>
+<div class="form-check">
+  <p class='mentors-paragraph'>
+  <input class="form-check-input" type="radio" value="" id="costSort" name ='sort'>
+  <label class="form-check-label" for="flexCheckDefault">
+    По стоимости
+  </label>
+  </p>
+</div>
+  </label>
+<div class="form-check checkk">
+  <p class='mentors-paragraph'>
+  <input class="form-check-input" type="radio" value="" id="costSort" name='sort'>
+  <label class="form-check-label" for="flexCheckChecked">
+    По опыту
+</div>
+{{!-- <button type="button" class="btn btn-primary">Поиск</button> --}}
+</p>
+<button type="button" class="btn btnSearch btn-primary btn-sm">Найти</button>
+<br>
+<br>
+</div>
+</div>
+  </form>
+
+<br><br><br>
+
+
+
+
+{{#each mentorAll}}
+  <div class="container">
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <div class="card-content card mb-3 mx-3">
+        <div class="main-blocks-wrapper-mentors-content row g-0">
+          <div class="col-md-4 mentors-block-img">
+            <img class="imgStyle" height="150" width="300" src="{{this.img}}" />
+          </div>
+          <div class="col-md-8 wrapper-mentors-content">
+            <div class="card-body mentors-content">
+              <h5 class="card-title">{{this.name}}</h5>
+              <h2 class="card-title">{{this.payPerHour}}</h2>
+              <h2 class="card-title">{{this.experience}}</h2>
+
+              <p
+                class="card-text"
+              >blablablablablablablablablablablablablablablablablablablabla</p>
+              <p class="card-text"><small
+                  class="text-muted"
+                >{{this.competencies}}</small></p>
+            </div>
           </div>
         </div>
       </div>

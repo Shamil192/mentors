@@ -1,3 +1,6 @@
+body {
+  background-image: url("/public/images/fon.jpg");
+}
 .header {
   background-color: #f8f9fa !important;
 }
@@ -40,18 +43,83 @@
   width: inherit !important;
 }
 
-.container{
+.container {
   margin-bottom: 20px !important;
 }
 
-.container{
+.container {
   margin-bottom: 0 !important;
 }
 
 .container-mentors {
   margin-top: 35px;
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  background-color: rgb(137, 177, 105);
+  width: 600px;
+  border-radius: 10px;
+}
+
+.btnSearch {
+  height: 28px;
 }
 
 .card-content {
-  margin: 0 0 20px 0 !important
+  margin: 0 0 20px 0 !important;
+  border-color: rebeccapurple;
+  border-radius: 8px;
+  border-width: unset;
+}
+
+.cardik {
+  width: 11rem;
+  height: 20rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-down {
+  position: relative;
+  top: 16rem;
+}
+
+.card-boddy {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10rem;
+  color: yellowgreen;
+  background-color: rebeccapurple;
+}
+
+.card-img-top {
+  width: 14rem;
+}
+
+.accordion-collapse {
+  margin-bottom: 10rem;
+  margin-top: 7rem;
+  background-color: #b196e8;
+}
+
+.accordion-item {
+  border-width: inherit;
+}
+
+.check-container {
+  display: flex;
+  margin-top: 12px;
+  margin-bottom: -14px;
+  width: 30em;
+  justify-content: space-evenly;
+}
+
+.checkk {
+  margin-left: 3rem;
 }

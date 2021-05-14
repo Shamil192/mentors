@@ -45,7 +45,6 @@
                       </div>
                       <div class="input-group mb-3">
                         <input type="file" name="avatar" class="form-control" id="inputGroupFile02">
-                        <label class="input-group-text" for="inputGroupFile02">Загрузить</label>
                       </div>
                       <div class="col-12">
                         <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
@@ -56,12 +55,11 @@
             </div>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header"> 
-                    <h5 class="modal-title" id="exampleModalLabel">Войти</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
                   </form>
+</div>
+
+
+
                   <div>
                     <form id="formSignUpMentor" method="POST" action="/mentor/signin">
                       <div class="container mt-5 mb-5">
@@ -71,12 +69,18 @@
                               <h5 class="fs-3 "></h5>
                               <h5 class="mt-3"> Форма входа для Менторов</h5> <small class="mt-2 text-muted"></small>
                               <div class="form-input">
+                  <div class="form-floating mb-3 form-input">
                                 <i class="fa fa-envelope"></i>
-                                <input name="email" type="text" class="form-control" placeholder="Email">
+  <input type="email" class="form-control" id="floatingInput" placeholder="Электронная почта" name='email'>
+  <label for="floatingInput">Электронная почта</label> 
+                                {{!-- <input name="email" type="text" class="form-control" placeholder="Email"> --}}
                               </div>
                               <div class="form-input">
+<div class="form-floating form-input" >
                                 <i class="fa fa-lock"></i>
-                                <input name="password" type="password" class="form-control" placeholder="пароль">
+                                {{!-- <input name="password" type="password" class="form-control" placeholder="пароль"> --}}
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Пароль" name='password'>
+  <label for="floatingPassword">Пароль</label>
                               </div>
                               {{#if error}}
                               <div>{{error}}</div>
@@ -93,6 +97,9 @@
                 </div>
               </div>
             </div>
+
+
+
             <li class="nav-item">
               <a class="nav-link" href="/mentor/showall" style='position:relative; left:734px'>Менторы</a>
             </li>
