@@ -35,8 +35,8 @@ if (filterForm) {
                 <div class="card-body mentors-content">
               <a href="/mentor/${element._id}"
                   <h5 class="card-title">${element.name}</h5> </a>
-                  <h2 class="card-title">${element.payPerHour}</h2>
-                  <h2 class="card-title">${element.experience}</h2>
+                  <h2 class="card-title">${element.payPerHour} руб/ч</h2>
+                  <h2 class="card-title">${element.experience} года</h2>
                   <p
                     class="card-text"
                   >blablablablablablablablablablablablablablablablablablablabla</p>
@@ -66,8 +66,8 @@ if (filterForm) {
                <a href="/mentor/${element._id}"
                
                     <h5 class="card-title">${element.name}</h5></a>
-                    <h2 class="card-title">${element.payPerHour}</h2>
-                    <h2 class="card-title">${element.experience}</h2>
+                    <h2 class="card-title">${element.payPerHour} руб/ч</h2>
+                    <h2 class="card-title">${element.experience} года</h2>
                     <p
                       class="card-text"
                     >blablablablablablablablablablablablablablablablablablablabla</p>
@@ -96,8 +96,8 @@ if (filterForm) {
                   <div class="card-body mentors-content">
              <a href="/mentor/${element._id}"
                     <h5 class="card-title">${element.name}</h5></a>
-                    <h2 class="card-title">${element.payPerHour}</h2>
-                    <h2 class="card-title">${element.experience}</h2>
+                    <h2 class="card-title">${element.payPerHour} руб/ч</h2>
+                    <h2 class="card-title">${element.experience} года</h2>
                     <p
                       class="card-text"
                     >blablablablablablablablablablablablablablablablablablablabla</p>
@@ -137,8 +137,8 @@ if (filterForm) {
                   <div class="card-body mentors-content">
              <a href="/mentor/${element._id}"
                     <h5 class="card-title">${element.name}</h5></a>
-                    <h2 class="card-title">${element.payPerHour}</h2>
-                    <h2 class="card-title">${element.experience}</h2>
+                    <h2 class="card-title">${element.payPerHour} руб/ч</h2>
+                    <h2 class="card-title">${element.experience} года</h2>
                     <p
                       class="card-text"
                     >blablablablablablablablablablablablablablablablablablablabla</p>
@@ -167,8 +167,8 @@ if (filterForm) {
                     <div class="card-body mentors-content">
                <a href="/mentor/${element._id}"
                       <h5 class="card-title">${element.name}</h5></a>
-                      <h2 class="card-title">${element.payPerHour}</h2>
-                      <h2 class="card-title">${element.experience}</h2>
+                      <h2 class="card-title">${element.payPerHour} руб/ч</h2>
+                      <h2 class="card-title">${element.experience} года</h2>
                       <p
                         class="card-text"
                       >blablablablablablablablablablablablablablablablablablablabla</p>
@@ -197,8 +197,8 @@ if (filterForm) {
                     <div class="card-body mentors-content">
                <a href="/mentor/${element._id}"
                       <h5 class="card-title">${element.name}</h5></a>
-                      <h2 class="card-title">${element.payPerHour}</h2>
-                      <h2 class="card-title">${element.experience}</h2>
+                      <h2 class="card-title">${element.payPerHour} руб/ч</h2>
+                      <h2 class="card-title">${element.experience} года</h2>
                       <p
                         class="card-text"
                       >blablablablablablablablablablablablablablablablablablablabla</p>
