@@ -66,13 +66,13 @@ mentorRouter.route('/signout')
   .get(mentorSignOut)
 
 mentorRouter.route('/:id')
-  .get(checkAuth, mentorProfile)
+  .get(mentorProfile)
 
 mentorRouter.route('/delete/:id')
-  .get(mentorDeleteProfile)
+  .get(checkAuth, checkAdmin, mentorDeleteProfile)
 
 mentorRouter.route('/edit/:id')
   .get(mentorEditRender)
-  .post(mentorEdit)
+  .post(checkAuth, mentorEdit)
 
 module.exports = mentorRouter

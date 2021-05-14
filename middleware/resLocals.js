@@ -17,15 +17,17 @@ async function resLocals(req, res, next) {
 }
 
 const checkAdmin = (req, res, next) => {
-  if (req.userRole === 'admin') {
+  if (req.mentorRole === 'admin') {
     return next();
   }
   return res.redirect('/');
 };
 
-const checkAuth = (req, res, next) => {
+const checkAuth = async (req, res, next) => {
   const userId = req.session?.mentor?.id // ? - оператор опциональной последовательности 
   if (userId) {
+    const currentMentor = await Mentor.findById(userId)
+    req.mentorRole = currentMentor.role;
     return next()
   }
   return res.redirect('/mentor/signup')
