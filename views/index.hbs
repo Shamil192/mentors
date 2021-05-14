@@ -14,14 +14,15 @@
           <h3>Подбери себе ментора</h3>
         </class>
         <form action="/mentor/showall/serch" method="POST" class="d-flex">
-           <select id="select" name='competencies'>
-            <option disabled selected>Выберите компетенции</option>
+
+
+<select class="form-select" id='select' name='competencies'required aria-label="select example">
+      <option disabled selected>Поиск</option>
             {{#each uniqueCompetencies}}
               <option value="{{this}}">{{this}}</option>
             {{/each}}
-          </select>
+    </select>
 
-          {{!-- <input name='' class="form-control me-2" type="search" placeholder="React, JavaScript ..." aria-label="Search"> --}}
           <button class="btn btn-outline-success" type="submit">Найти</button>
         </form>
       </div>
@@ -32,7 +33,7 @@
 </div>
 <div class='card-container'>
 {{#each mentors}}
-  <div class="cardik">
+  <div class="cardik shadow p-3 mb-5 bg-white rounded">
     <img src="{{this.img}}" class="card-img-top"  name="avatar">
     <div class="card-body py-0">
       <p class="card-title">{{this.name}}</p>
@@ -55,10 +56,8 @@
 
   <div class="card-boddy" >
     
-    {{!-- <div> --}}
   <div>
     <p class="card-text">0 занятий проведено</p>
-  {{!-- </div> --}}
 </div>
     <div>
   
@@ -74,4 +73,14 @@
   <div class="card-footer text-muted">
   </div>
 </div>
+
+
+
+ <footer class="bg-white">
+     <div class="bg-white py-2">
+         <div class="container text-center footer">
+             <p class="text-muted mb-0 ">© Elbrus bootcamp. The Angry Beavers </p>
+         </div>
+     </div>
+ </footer>
 
