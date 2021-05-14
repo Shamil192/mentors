@@ -41,6 +41,7 @@ async function mentorSignUp(req, res) {
         req.session.mentor = {
           id: newMentor._id,
           role: "mentor",
+          name: name,
         };
         return res.redirect(`/mentor/${newMentor._id}`);
 
@@ -71,6 +72,7 @@ async function mentorSignIn(req, res) {
         req.session.mentor = {
           id: currentMentor._id,
           role: "mentor",
+          name: currentMentor.name,
         };
         if (currentMentor) {
           return res.redirect(`/mentor/${currentMentor._id}`);
@@ -97,8 +99,8 @@ async function mentorSignOut(req, res) {
 
 async function mentorProfile(req, res) {
   const mentorId = req.params.id
-  const mentor = await Mentor.findOne({ _id: mentorId })
-  res.render('mentors/mentorLC', { mentor });
+  const mentorPage = await Mentor.findOne({ _id: mentorId })
+  res.render('mentors/mentorLC', { mentorPage });
 };
 
 async function mentorDeleteProfile(req, res) {
@@ -126,7 +128,7 @@ async function mentorEditRender(req, res) {
 
 async function mentorEdit(req, res) {
 
-  const { name, email, tel, password, domain, experience, payPerHour, } = req.body;
+  const { name, email, tel, password, domain, experience, payPerHour } = req.body;
   const competenciesArr = req.body.competencies;
   const competencies = competenciesArr.split(' ');
 
@@ -136,7 +138,13 @@ async function mentorEdit(req, res) {
   try {
     await Mentor.findByIdAndUpdate(
       mentor._id,
-      { name, email, tel, password, domain, experience, payPerHour, competencies },
+      {
+        name, email, tel, password, domain, experience,
+        payPerHour,
+        img: '/images/' + req.file.filename,
+
+        competencies
+      },
       { new: true })
 
     return res.redirect(`/mentor/${mentor._id}`);
@@ -166,6 +174,7 @@ async function searchMentorsMain(req, res) {
   const mentorAll = mentors.filter(elem => elem.competencies.includes(competencies))
   const uniqueCompetencies = Array.from(new Set(mentors.map(x => x.competencies).flat()))
   res.render("mentors/mentorAll", { mentorAll, uniqueCompetencies })
+
 }
 
 

@@ -22,10 +22,10 @@ if (filterForm) {
       });
       const resultRes = await responseSkill.json();
       if (!checkCost.checked && !checkExperience.checked) {
-      allMentors.innerHTML = "";
-      resultRes
-        .forEach((element) => {
-          allMentors.innerHTML +=  `<div class="shadow p-3 mb-5 bg-white rounded">
+        allMentors.innerHTML = "";
+        resultRes
+          .forEach((element) => {
+            allMentors.innerHTML += `<div class="shadow p-3 mb-5 bg-white rounded">
           <div class="card-content card mb-3 mx-3">
             <div class="main-blocks-wrapper-mentors-content row g-0">
               <div class="col-md-4 mentors-block-img">
@@ -33,7 +33,8 @@ if (filterForm) {
               </div>
               <div class="col-md-8 wrapper-mentors-content">
                 <div class="card-body mentors-content">
-                  <h5 class="card-title">${element.name}</h5>
+              <a href="/mentor/${element._id}"
+                  <h5 class="card-title">${element.name}</h5> </a>
                   <h2 class="card-title">${element.payPerHour}</h2>
                   <h2 class="card-title">${element.experience}</h2>
                   <p
@@ -47,14 +48,15 @@ if (filterForm) {
             </div>
           </div>
         </div>`;
-        });
+          });
       }
       if (checkCost.checked) {
         allMentors.innerHTML = "";
         resultRes
           .sort((a, b) => a.payPerHour - b.payPerHour)
           .forEach((element) => {
-            allMentors.innerHTML +=  `<div class="shadow p-3 mb-5 bg-white rounded">
+            // console.log(element)
+            allMentors.innerHTML += `<div class="shadow p-3 mb-5 bg-white rounded">
             <div class="card-content card mb-3 mx-3">
               <div class="main-blocks-wrapper-mentors-content row g-0">
                 <div class="col-md-4 mentors-block-img">
@@ -62,7 +64,9 @@ if (filterForm) {
                 </div>
                 <div class="col-md-8 wrapper-mentors-content">
                   <div class="card-body mentors-content">
-                    <h5 class="card-title">${element.name}</h5>
+               <a href="/mentor/${element._id}"
+               
+                    <h5 class="card-title">${element.name}</h5></a>
                     <h2 class="card-title">${element.payPerHour}</h2>
                     <h2 class="card-title">${element.experience}</h2>
                     <p
@@ -83,7 +87,7 @@ if (filterForm) {
         resultRes
           .sort((a, b) => a.experience - b.experience)
           .forEach((element) => {
-            allMentors.innerHTML +=  `<div class="shadow p-3 mb-5 bg-white rounded">
+            allMentors.innerHTML += `<div class="shadow p-3 mb-5 bg-white rounded">
             <div class="card-content card mb-3 mx-3">
               <div class="main-blocks-wrapper-mentors-content row g-0">
                 <div class="col-md-4 mentors-block-img">
@@ -91,7 +95,8 @@ if (filterForm) {
                 </div>
                 <div class="col-md-8 wrapper-mentors-content">
                   <div class="card-body mentors-content">
-                    <h5 class="card-title">${element.name}</h5>
+             <a href="/mentor/${element._id}"
+                    <h5 class="card-title">${element.name}</h5></a>
                     <h2 class="card-title">${element.payPerHour}</h2>
                     <h2 class="card-title">${element.experience}</h2>
                     <p
@@ -123,7 +128,7 @@ if (filterForm) {
         allMentors.innerHTML = "";
         radioFilter
           .forEach((element) => {
-            allMentors.innerHTML +=  `<div class="shadow p-3 mb-5 bg-white rounded">
+            allMentors.innerHTML += `<div class="shadow p-3 mb-5 bg-white rounded">
             <div class="card-content card mb-3 mx-3">
               <div class="main-blocks-wrapper-mentors-content row g-0">
                 <div class="col-md-4 mentors-block-img">
@@ -131,7 +136,8 @@ if (filterForm) {
                 </div>
                 <div class="col-md-8 wrapper-mentors-content">
                   <div class="card-body mentors-content">
-                    <h5 class="card-title">${element.name}</h5>
+             <a href="/mentor/${element._id}"
+                    <h5 class="card-title">${element.name}</h5></a>
                     <h2 class="card-title">${element.payPerHour}</h2>
                     <h2 class="card-title">${element.experience}</h2>
                     <p
@@ -146,13 +152,13 @@ if (filterForm) {
             </div>
           </div>`;
           });
-        }
-        if (checkCost.checked) {
-          allMentors.innerHTML = "";
-          radioFilter
-            .sort((a, b) => a.payPerHour - b.payPerHour)
-            .forEach((element) => {
-              allMentors.innerHTML +=  `<div class="shadow p-3 mb-5 bg-white rounded">
+      }
+      if (checkCost.checked) {
+        allMentors.innerHTML = "";
+        radioFilter
+          .sort((a, b) => a.payPerHour - b.payPerHour)
+          .forEach((element) => {
+            allMentors.innerHTML += `<div class="shadow p-3 mb-5 bg-white rounded">
               <div class="card-content card mb-3 mx-3">
                 <div class="main-blocks-wrapper-mentors-content row g-0">
                   <div class="col-md-4 mentors-block-img">
@@ -160,7 +166,8 @@ if (filterForm) {
                   </div>
                   <div class="col-md-8 wrapper-mentors-content">
                     <div class="card-body mentors-content">
-                      <h5 class="card-title">${element.name}</h5>
+               <a href="/mentor/${element._id}"
+                      <h5 class="card-title">${element.name}</h5></a>
                       <h2 class="card-title">${element.payPerHour}</h2>
                       <h2 class="card-title">${element.experience}</h2>
                       <p
@@ -174,14 +181,14 @@ if (filterForm) {
                 </div>
               </div>
             </div>`;
-            });
-        }
-        if (checkExperience.checked) {
-          allMentors.innerHTML = "";
-          radioFilter
-            .sort((a, b) => a.experience - b.experience)
-            .forEach((element) => {
-              allMentors.innerHTML +=  `<div class="shadow p-3 mb-5 bg-white rounded">
+          });
+      }
+      if (checkExperience.checked) {
+        allMentors.innerHTML = "";
+        radioFilter
+          .sort((a, b) => a.experience - b.experience)
+          .forEach((element) => {
+            allMentors.innerHTML += `<div class="shadow p-3 mb-5 bg-white rounded">
               <div class="card-content card mb-3 mx-3">
                 <div class="main-blocks-wrapper-mentors-content row g-0">
                   <div class="col-md-4 mentors-block-img">
@@ -189,7 +196,8 @@ if (filterForm) {
                   </div>
                   <div class="col-md-8 wrapper-mentors-content">
                     <div class="card-body mentors-content">
-                      <h5 class="card-title">${element.name}</h5>
+               <a href="/mentor/${element._id}"
+                      <h5 class="card-title">${element.name}</h5></a>
                       <h2 class="card-title">${element.payPerHour}</h2>
                       <h2 class="card-title">${element.experience}</h2>
                       <p
@@ -203,8 +211,8 @@ if (filterForm) {
                 </div>
               </div>
             </div>`;
-            });
-        }
+          });
+      }
     }
   });
 }

@@ -104,11 +104,12 @@
               <a class="nav-link" href="/mentor/showall" style='position:relative; left:734px'>Менторы</a>
             </li>
             {{#if mentor}}
+            
             <li class="nav-item">
               <a class="nav-link" href="/mentor/{{mentor.id}}" style="
         position: absolute;
         right: 111px;
-    ">Профиль</a>
+    ">Профиль: {{mentor.name}}</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/mentor/signout" style="
