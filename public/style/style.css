@@ -178,8 +178,10 @@ p {
 }
 
 .footer {
+  background-color: #e8edf3 !important ;
   position: relative;
     bottom: -12em;
+    height: 2em;
 }
 
 #navvbar {
