@@ -126,7 +126,7 @@ async function mentorEditRender(req, res) {
 
 async function mentorEdit(req, res) {
 
-  const { name, email, tel, password, domain, experience, payPerHour, } = req.body;
+  const { name, email, tel, password, domain, experience, payPerHour } = req.body;
   const competenciesArr = req.body.competencies;
   const competencies = competenciesArr.split(' ');
 
@@ -136,7 +136,13 @@ async function mentorEdit(req, res) {
   try {
     await Mentor.findByIdAndUpdate(
       mentor._id,
-      { name, email, tel, password, domain, experience, payPerHour, competencies },
+      {
+        name, email, tel, password, domain, experience,
+        payPerHour,
+        img: '/images/' + req.file.filename,
+
+        competencies
+      },
       { new: true })
 
     return res.redirect(`/mentor/${mentor._id}`);
@@ -166,6 +172,7 @@ async function searchMentorsMain(req, res) {
   const mentorAll = mentors.filter(elem => elem.competencies.includes(competencies))
   const uniqueCompetencies = Array.from(new Set(mentors.map(x => x.competencies).flat()))
   res.render("mentors/mentorAll", { mentorAll, uniqueCompetencies })
+
 }
 
 
