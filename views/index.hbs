@@ -13,8 +13,15 @@
         <class class="container-fluid">
           <h3>Подбери себе ментора</h3>
         </class>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="React, JavaScript ..." aria-label="Search">
+        <form action="/mentor/showall/serch" method="POST" class="d-flex">
+           <select id="select" name='competencies'>
+            <option disabled selected>Выберите компетенции</option>
+            {{#each uniqueCompetencies}}
+              <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+
+          {{!-- <input name='' class="form-control me-2" type="search" placeholder="React, JavaScript ..." aria-label="Search"> --}}
           <button class="btn btn-outline-success" type="submit">Найти</button>
         </form>
       </div>
@@ -23,62 +30,22 @@
   </div>
 </div>
 </div>
-
-
 <div class='card-container'>
-    <div class="cardik">
-    <img src="{{this.img}}" class="card-img-top" alt="..." name="avatar">
-    <div class="card-body py-0">
-      <p class="card-title">имя ментора</p>
-      <p class="card-text">краткая инфа</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Тэги</li>
-    </ul>
-    <div class="card-body py-0">
-      <a href="#" class="card-link">кнопка перехода в его профиль</a>
-    </div>
-  </div>
+{{#each mentors}}
   <div class="cardik">
-    <img src="{{this.img}}" class="card-img-top" alt="..." name="avatar">
+    <img src="{{this.img}}" class="card-img-top"  name="avatar">
     <div class="card-body py-0">
-      <p class="card-title">имя ментора</p>
-      <p class="card-text">краткая инфа</p>
+      <p class="card-title">{{this.name}}</p>
+      <p class="card-text">{{this.domain}}</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Тэги</li>
+      <li class="list-group-item">{{this.competencies}}</li>
     </ul>
     <div class="card-body py-0">
-      <a href="#" class="card-link">кнопка перехода в его профиль</a>
+      <a href="/mentor/{{this.id}}" class="card-link">перейти  в его профиль</a>
     </div>
   </div>
-  <div class="cardik">
-    <img src="{{this.img}}" class="card-img-top" alt="..." name="avatar">
-    <div class="card-body py-0">
-      <p class="card-title">имя ментора</p>
-      <p class="card-text">краткая инфа</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Тэги</li>
-    </ul>
-    <div class="card-body py-0">
-      <a href="#" class="card-link">кнопка перехода в его профиль</a>
-    </div>
-  </div>
-  <div class="cardik">
-    <img src="{{this.img}}" class="card-img-top" alt="..." name="avatar">
-    <div class="card-body py-0">
-      <p class="card-title">имя ментора</p>
-      <p class="card-text">краткая инфа</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Тэги</li>
-    </ul>
-    <div class="card-body py-0">
-      <a href="#" class="card-link">кнопка перехода в его профиль</a>
-    </div>
-  </div>
-
+{{/each}}
 </div>
 
 <br>

@@ -11,6 +11,7 @@ const {
   mentorEdit,
   mentorShowAll,
   searchMentors,
+  searchMentorsMain,
 } = require('../controllers/mentorControllers');
 
 const { checkAuth } = require('../middleware/resLocals');
@@ -48,6 +49,9 @@ var upload = multer({ storage })
 mentorRouter.route('/showall')
   .get(mentorShowAll)
   .post(searchMentors)
+
+mentorRouter.route('/showall/serch')
+  .post(searchMentorsMain)
 
 
 mentorRouter.route('/signup')
