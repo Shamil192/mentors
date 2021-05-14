@@ -16,35 +16,24 @@ const {
 
 const { checkAuth } = require('../middleware/resLocals');
 
-
-
 var multer = require('multer')
 
 const { v4 } = require('uuid');
-
-
-
-
 var storage = multer.diskStorage({
-
 
   destination: function (req, file, cb) {
     cb(null, 'public/images')
   },
 
-
   filename: function (req, file, cb) {
-    // console.log(' file ==>', file);
+    console.log(' file ==>', file);
     const newFileName = v4() + '.' + file.originalname.split('.')[1]
-    // console.log(' file ==>', newFileName);
+    console.log(' file ==>', newFileName);
     cb(null, newFileName)
   }
-
-
 })
 
 var upload = multer({ storage })
-
 
 mentorRouter.route('/showall')
   .get(mentorShowAll)
@@ -52,7 +41,6 @@ mentorRouter.route('/showall')
 
 mentorRouter.route('/showall/serch')
   .post(searchMentorsMain)
-
 
 mentorRouter.route('/signup')
   .get(mentorSignUpRender)
@@ -73,6 +61,6 @@ mentorRouter.route('/delete/:id')
 
 mentorRouter.route('/edit/:id')
   .get(mentorEditRender)
-  .post(mentorEdit)
+  .post(upload.single('avatar'), mentorEdit)
 
 module.exports = mentorRouter
