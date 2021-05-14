@@ -1,3 +1,6 @@
+
+
+
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -27,14 +30,9 @@
   </div>
 </div>
 </div>
-
-
-<div class='card-container' style="
-    justify-content: space-evenly;
-    display: flex;
-">
+<div class='card-container'>
 {{#each mentors}}
-  <div class="card" style="width: 11rem; height: 20rem">
+  <div class="cardik">
     <img src="{{this.img}}" class="card-img-top"  name="avatar">
     <div class="card-body py-0">
       <p class="card-title">{{this.name}}</p>
@@ -53,27 +51,27 @@
 <br>
 <br>
 
-<div class="card text-center">
-  <div class="card-header">
-  </div>
-  <div class="card-body" style='display:flex; justify-content: space-around; align-items:center; height:10rem;color: yellowgreen;background-color: rebeccapurple;' >
+<div class="card-down text-center">
+
+  <div class="card-boddy" >
     
-    <div>
+    {{!-- <div> --}}
   <div>
-    <p>0 занятий проведено.</p>
-  </div>
+    <p class="card-text">0 занятий проведено</p>
+  {{!-- </div> --}}
 </div>
     <div>
   
-    <p class="card-text">0 учеников обучено.</p>
+    <p class="card-text">0 учеников обучено</p>
   
 </div>
     <div>
   
-    <p class="card-text">Миллион людей счастливо.</p>
+    <p class="card-text">Миллион людей счастливо</p>
   
 </div>
   </div>
   <div class="card-footer text-muted">
   </div>
 </div>
+

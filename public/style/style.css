@@ -1,0 +1,125 @@
+body {
+  background-image: url("/public/images/fon.jpg");
+}
+.header {
+  background-color: #f8f9fa !important;
+}
+.bg-light {
+  background-color: none;
+}
+
+.container {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-header {
+  max-width: 1500px;
+}
+
+.imgStyle {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-blocks-wrapper-mentors-content {
+  padding: 20px;
+}
+
+.mentors-block-img {
+  height: 200px !important;
+  width: 200px !important;
+}
+
+.mentors-content {
+  padding: 0 !important;
+}
+
+.wrapper-mentors-content {
+  padding: 0;
+  margin-left: 20px;
+  width: inherit !important;
+}
+
+.container {
+  margin-bottom: 20px !important;
+}
+
+.container {
+  margin-bottom: 0 !important;
+}
+
+.container-mentors {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  background-color: rgb(137, 177, 105);
+  width: 600px;
+  border-radius: 10px;
+}
+
+.btnSearch {
+  height: 28px;
+}
+
+.card-content {
+  margin: 0 0 20px 0 !important;
+  border-color: rebeccapurple;
+  border-radius: 8px;
+  border-width: unset;
+}
+
+.cardik {
+  width: 11rem;
+  height: 20rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-down {
+  position: relative;
+  top: 16rem;
+}
+
+.card-boddy {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10rem;
+  color: yellowgreen;
+  background-color: rebeccapurple;
+}
+
+.card-img-top {
+  width: 14rem;
+}
+
+.accordion-collapse {
+  margin-bottom: 10rem;
+  margin-top: 7rem;
+  background-color: #b196e8;
+}
+
+.accordion-item {
+  border-width: inherit;
+}
+
+.check-container {
+  display: flex;
+  margin-top: 12px;
+  margin-bottom: -14px;
+  width: 30em;
+  justify-content: space-evenly;
+}
+
+.checkk {
+  margin-left: 3rem;
+}
