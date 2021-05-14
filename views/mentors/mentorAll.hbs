@@ -1,58 +1,36 @@
-{{!-- <div >
-  <h3 class="mentors-paragraph">Поищи себе ментоар</h3>
   <form class="mentors-form" name="filterForm" method="POST">
-    <select id="select" name="name">
-      <option disabled selected>Выберите компетенции</option>
-      {{#each uniqueCompetencies}}
-        <option value="{{this}}">{{this}}</option>
-      {{/each}}
-    </select>
-    <p class="mentors-paragraph">
-      <input id="costSort" name="sort" type="radio" />
-      <span class="mentors-text">По стоимости</span>
-    </p>
-    <p class="mentors-paragraph">
-      <input id="experianceSort" name="sort" type="radio" />
-      <span class="mentors-text">По опыту</span>
-    </p>
-    <button>срочно ищи!</button>
-  </form>
-</div> --}}
 
-
-  <form class="mentors-form" name="filterForm" method="POST">
 <div class="container container-mentors"> 
-<div class="alert alert-primary" role="alert">
+<div class="alert" role="alert">
   Выбери себе наставника 
 </div>
-<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="React, JavaScript">
+<select class="form-control" list="datalistOptions" id="exampleDataList" placeholder="React, JavaScript"> </select>
 <datalist id="datalistOptions">
+      <option selected>Все наставники</option>
       {{#each uniqueCompetencies}}
 <option value="{{this}}">{{this}}</option>
       {{/each}}
 </datalist>
-<div class='check-container'>
-<div class="form-check">
+<div class="form-check checkk">
   <p class='mentors-paragraph'>
-  <input class="form-check-input" type="radio" value="" id="costSort" name ='sort'>
-  <label class="form-check-label" for="flexCheckDefault">
+  <input class="form-check-input" type="radio" id="costSort" name ='sort'>
+  <label class="form-check-label">
     По стоимости
   </label>
   </p>
+  <p class='mentors-paragraph'>
+  <input class="form-check-input" type="radio" id="experianceSort" name='sort'>
+  <label class="form-check-label">
+    По опыту
+  </label>
+  </p>
+{{!-- <button>Найти</button> --}}
+<button type="button" class="btn btnSearch btn-sm">Найти</button>
 </div>
   </label>
-<div class="form-check checkk">
-  <p class='mentors-paragraph'>
-  <input class="form-check-input" type="radio" value="" id="costSort" name='sort'>
-  <label class="form-check-label" for="flexCheckChecked">
-    По опыту
-</div>
-{{!-- <button type="button" class="btn btn-primary">Поиск</button> --}}
 </p>
-<button type="button" class="btn btnSearch btn-primary btn-sm">Найти</button>
 <br>
 <br>
-</div>
 </div>
   </form>
 
@@ -60,9 +38,8 @@
 
 
 
-
+  <div id='allMentors' class="container">
 {{#each mentorAll}}
-  <div class="container">
     <div class="shadow p-3 mb-5 bg-white rounded">
       <div class="card-content card mb-3 mx-3">
         <div class="main-blocks-wrapper-mentors-content row g-0">
@@ -86,5 +63,5 @@
         </div>
       </div>
     </div>
-  </div>
 {{/each}}
+  </div>

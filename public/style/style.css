@@ -61,6 +61,7 @@ body {
   background-color: rgb(137, 177, 105);
   width: 600px;
   border-radius: 10px;
+  height: 10em;
 }
 
 .btnSearch {
@@ -122,4 +123,7 @@ body {
 
 .checkk {
   margin-left: 3rem;
+  display: flex;
+  width: 24em;
+  justify-content: space-around;
 }
