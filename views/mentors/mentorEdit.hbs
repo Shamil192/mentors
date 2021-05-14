@@ -1,5 +1,5 @@
 <h4>Редактирование</h4>
-<form id="formSignUpMentor" method="POST" action='/mentor/edit/{{mentor.id}}'>
+<form id="formSignUpMentor" method="POST" action='/mentor/edit/{{mentor.id}}' enctype="multipart/form-data">
   <div class="container mt-5 mb-5">
     <div class="row d-flex align-items-center justify-content-center">
       <div class="col-md-6">
@@ -49,6 +49,10 @@
             <input name="payPerHour" type="text" class="form-control" placeholder="Оплата за час в руб"
               value={{mentor.payPerHour}}>
           </div>
+              <div class="input-group mb-3">
+                    <input type="file" name="avatar"   class="form-control" id="inputGroupFile02">
+                    <label class="input-group-text" for="inputGroupFile02">изменить</label>
+               </div>
           {{#if error}}
           <div>{{error}}</div>
           </br>
