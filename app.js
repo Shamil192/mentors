@@ -22,7 +22,7 @@ hbs.registerPartials(path.join(process.env.PWD, 'views', 'partials'));
 
 app.use(session(sessionConfig));
 app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(process.env.PWD, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
