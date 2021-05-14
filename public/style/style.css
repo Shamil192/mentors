@@ -1,0 +1,189 @@
+
+.header {
+  background-color: #f8f9fa !important;
+}
+.bg-light {
+  background-color: none;
+}
+
+.container {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-header {
+  max-width: 1500px;
+  padding: 0 0;
+}
+
+.imgStyle {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-img-top {
+  width: 14rem;
+  width: 176px;
+  height: 200px;
+  object-fit: cover;
+
+}
+
+.main-blocks-wrapper-mentors-content {
+  padding: 20px;
+}
+
+.mentors-block-img {
+  height: 200px !important;
+  width: 200px !important;
+}
+
+.mentors-content {
+  padding: 0 !important;
+}
+
+.wrapper-mentors-content {
+  padding: 0;
+  margin-left: 20px;
+  width: inherit !important;
+}
+
+.container {
+  margin-bottom: 20px !important;
+}
+
+.container {
+  margin-bottom: 0 !important;
+}
+
+.container-mentors {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  background-color: rgb(137, 177, 105);
+  width: 600px;
+  border-radius: 10px;
+  height: 10em;
+}
+
+.btnSearch {
+  height: 28px;
+}
+
+.card-content {
+  margin: 0 0 20px 0 !important;
+  border-radius: 8px;
+  border-width: unset;
+}
+
+.cardik {
+  border-width: 4px;
+  border-color: rgb(243, 223, 243);
+  width: 215px;
+  height: 25rem;
+  border-style: ridge;
+
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-down {
+  position: relative;
+  top: 16rem;
+}
+
+.card-boddy {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10rem;
+  position: relative;
+  top: -15em;
+  background-color: rgb(110, 163, 161);
+
+}
+
+  
+
+.accordion-collapse {
+  margin-bottom: 10rem;
+  margin-top: 7rem;
+  background-color: #e8e2f5;
+}
+
+.accordion-item {
+  border-width: inherit;
+}
+
+.check-container {
+  display: flex;
+  margin-top: 12px;
+  margin-bottom: -14px;
+  width: 30em;
+  justify-content: space-evenly;
+}
+
+
+.checkk {
+  margin-left: 3rem;
+  display: flex;
+  width: 24em;
+  justify-content: space-around;
+  margin-top: 11px;
+}
+
+body {
+  background: #e8edf3;
+  min-height: 100vh;
+  font-family: 'Sanchez', serif
+}
+
+#button-addon1 {
+  color: #ffc371
+}
+
+i {
+  color: #0000cc;
+  font-size: 20px
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic
+}
+
+.form-control.shadow-0:focus {
+  box-shadow: none
+}
+
+.display-3 {
+  font-family: 'Sanchez', serif
+}
+
+p {
+  font-family: 'Tajawal', sans-serif
+}
+
+.lead {
+  font-family: 'Sanchez 200', serif
+}
+
+.footer {
+  background-color: #e8edf3 !important ;
+  position: relative;
+    bottom: -12em;
+    height: 2em;
+}
+
+#navvbar {
+ background-color: rgb(112, 110, 110),
+}

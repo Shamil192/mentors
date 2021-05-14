@@ -11,14 +11,13 @@
           <h3>Подбери себе ментора</h3>
         </class>
         <form action="/mentor/showall/serch" method="POST" class="d-flex">
-           <select id="select" name='competencies'>
-            <option disabled selected>Выберите компетенции</option>
+<select class="form-select" id='select' name='competencies'required aria-label="select example">
+      <option disabled selected>Поиск</option>
             {{#each uniqueCompetencies}}
               <option value="{{this}}">{{this}}</option>
             {{/each}}
-          </select>
+    </select>
 
-          {{!-- <input name='' class="form-control me-2" type="search" placeholder="React, JavaScript ..." aria-label="Search"> --}}
           <button class="btn btn-outline-success" type="submit">Найти</button>
         </form>
       </div>
@@ -27,14 +26,9 @@
   </div>
 </div>
 </div>
-
-
-<div class='card-container' style="
-    justify-content: space-evenly;
-    display: flex;
-">
+<div class='card-container'>
 {{#each mentors}}
-  <div class="card" style="width: 11rem; height: 20rem">
+  <div class="cardik shadow p-3 mb-5 bg-white rounded">
     <img src="{{this.img}}" class="card-img-top"  name="avatar">
     <div class="card-body py-0">
       <p class="card-title">{{this.name}}</p>
@@ -44,36 +38,27 @@
       <li class="list-group-item">{{this.competencies}}</li>
     </ul>
     <div class="card-body py-0">
-      <a href="/mentor/{{this.id}}" class="card-link">перейти  в его профиль</a>
+      <a href="/mentor/{{this.id}}" class="card-link">Подробнее</a>
     </div>
   </div>
 {{/each}}
 </div>
-
 <br>
 <br>
-
-<div class="card text-center">
-  <div class="card-header">
-  </div>
-  <div class="card-body" style='display:flex; justify-content: space-around; align-items:center; height:10rem;color: yellowgreen;background-color: rebeccapurple;' >
-    
-    <div>
+<div class="card-down text-center">
+  <div class="card-boddy" > 
   <div>
-    <p>0 занятий проведено.</p>
-  </div>
+    <p class="card-text">0 занятий проведено</p>
 </div>
     <div>
-  
-    <p class="card-text">0 учеников обучено.</p>
-  
+    <p class="card-text">0 учеников обучено</p>
 </div>
     <div>
-  
-    <p class="card-text">Миллион людей счастливо.</p>
-  
+    <p class="card-text">Миллион людей счастливо</p>
 </div>
   </div>
   <div class="card-footer text-muted">
   </div>
 </div>
+
+

@@ -1,25 +1,70 @@
-<h1> Менторы туточки!</h1>
-<p>Поищи себе ментоар</p>
-<form name='filterForm' method="POST">
-  <select id="select" name='name'>
-    <option disabled selected>Выберите компетенции</option>
-    {{#each uniqueCompetencies}}
-      <option value="{{this}}">{{this}}</option>
-    {{/each}}
-  </select>
-  <p><input id="costSort" name='sort' type="radio">По стоимости</p>
-  <p><input id="experianceSort" name='sort' type="radio">По опыту</p>
-  <button>срочно ищи!</button>
-</form>
-<ul id='allMentors'>
+  <form class="mentors-form" name="filterForm" method="POST">
+
+<div class="container container-mentors"> 
+<div class="alert" role="alert">
+  Выбери себе наставника 
+</div>
+<select class="form-control" list="datalistOptions" id="exampleDataList" placeholder="React, JavaScript"> 
+<datalist id="datalistOptions">
+      <option selected>Все наставники</option>
+      {{#each uniqueCompetencies}}
+<option value="{{this}}">{{this}}</option>
+      {{/each}}
+</datalist>
+</select>
+<div class="form-check checkk">
+  <p class='mentors-paragraph'>
+  <input class="form-check-input" type="radio" id="costSort" name ='sort'>
+  <label class="form-check-label">
+    По стоимости
+  </label>
+  </p>
+  <p class='mentors-paragraph'>
+  <input class="form-check-input" type="radio" id="experianceSort" name='sort'>
+  <label class="form-check-label">
+    По опыту
+  </label>
+  </p>
+{{!-- <button>Найти</button> --}}
+<button class="btn btnSearch btn-primary btn-sm">Найти</button>
+</div>
+  </label>
+</p>
+<br>
+<br>
+</div>
+  </form>
+
+<br><br><br>
+
+
+
+  <div id='allMentors' class="container">
 {{#each mentorAll}}
-<li>
-  <div> 
-    <p>Ментор: {{this.name}}</p>
-    <p>Опыт работы: {{this.experience}}</p>
-    <p>Стоимость занятий: {{this.payPerHour}} руб/ч</p>
-    <p>{{this.competencies}}</p>
-  </div>
-</li>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <div class="card-content card mb-3 mx-3">
+        <div class="main-blocks-wrapper-mentors-content row g-0">
+          <div class="col-md-4 mentors-block-img">
+            <img class="imgStyle" src="{{this.img}}" />
+          </div>
+          <div class="col-md-8 wrapper-mentors-content">
+            <div class="card-body mentors-content">
+               <a href="/mentor/{{this.id}}"
+              <class="card-title">  <h5>{{this.name}}</h5> </a>
+              <h4 class="card-title">{{this.payPerHour}} руб/ч</h4>
+              <h4 class="card-title">{{this.experience}} года</h4>
+<h6>О себе:</h6>
+              <p
+                class="card-text"
+              >blablablablablablablablablablablablablablablablablablablabla</p>
+              <h6>Навыки:</h6>
+              <p class="card-text"><small
+                  class="text-muted"
+                >{{this.competencies}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 {{/each}}
-</ul>
+  </div>

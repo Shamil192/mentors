@@ -24,7 +24,25 @@ const checkAuth = (req, res, next) => {
   return res.redirect('/mentor/signup')
 }
 
+const checkMyPage = (req, res, next) => {
+  const userId = req.session?.mentor?.id // ? - оператор опциональной последовательности 
+  const myPage = req.params.id
+  if (userId === myPage) {
+    res.locals.myPage = true;
+    return next()
+  }
+  return next()
+}
 
+const checkEdit = (req, res, next) => {
+  const userId = req.session?.mentor?.id // ? - оператор опциональной последовательности 
+  const myPage = req.params.id
+  if (userId === myPage) {
+    res.locals.myPage = true;
+    return next()
+  }
+  return res.redirect(`/`)
+}
 
 function createErr(req, res, next) {
   const error = createError(404, 'Запрашиваемой страницы не существует на сервере.');
@@ -59,4 +77,6 @@ module.exports = {
   createErr,
   cathErrAndSendAnswer,
   checkAuth,
+  checkMyPage,
+  checkEdit
 }

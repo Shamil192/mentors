@@ -41,6 +41,7 @@ async function mentorSignUp(req, res) {
         req.session.mentor = {
           id: newMentor._id,
           role: "mentor",
+          name: name,
         };
         return res.redirect(`/mentor/${newMentor._id}`);
 
@@ -71,6 +72,7 @@ async function mentorSignIn(req, res) {
         req.session.mentor = {
           id: currentMentor._id,
           role: "mentor",
+          name: currentMentor.name,
         };
         if (currentMentor) {
           return res.redirect(`/mentor/${currentMentor._id}`);
@@ -97,8 +99,8 @@ async function mentorSignOut(req, res) {
 
 async function mentorProfile(req, res) {
   const mentorId = req.params.id
-  const mentor = await Mentor.findOne({ _id: mentorId })
-  res.render('mentors/mentorLC', { mentor });
+  const mentorPage = await Mentor.findOne({ _id: mentorId })
+  res.render('mentors/mentorLC', { mentorPage });
 };
 
 async function mentorDeleteProfile(req, res) {
@@ -161,16 +163,15 @@ async function mentorShowAll(req, res) {
   res.render("mentors/mentorAll", { mentorAll, uniqueCompetencies });
 }
 
-async function searchMentors(req, res) {
-  const mentors = await Mentor.find({ name: req.body.name })
-  console.log(mentors)
-}
+// async function searchMentors(req, res) {
+//   const mentors = await Mentor.find({ name: req.body.name })
+//   console.log(mentors)
+// }
 
 async function searchMentorsMain(req, res) {
   const competencies = req.body.competencies;
   const mentors = await Mentor.find();
   const mentorAll = mentors.filter(elem => elem.competencies.includes(competencies))
-
   const uniqueCompetencies = Array.from(new Set(mentors.map(x => x.competencies).flat()))
   res.render("mentors/mentorAll", { mentorAll, uniqueCompetencies })
 

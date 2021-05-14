@@ -1,4 +1,3 @@
-<h4>Редактирование</h4>
 <form id="formSignUpMentor" method="POST" action='/mentor/edit/{{mentor.id}}' enctype="multipart/form-data">
   <div class="container mt-5 mb-5">
     <div class="row d-flex align-items-center justify-content-center">
@@ -51,13 +50,15 @@
           </div>
               <div class="input-group mb-3">
                     <input type="file" name="avatar"   class="form-control" id="inputGroupFile02">
-                    <label class="input-group-text" for="inputGroupFile02">изменить</label>
                </div>
           {{#if error}}
           <div>{{error}}</div>
           </br>
           {{/if}}
-          <button id="editMentor" class=" form-check btn btn-primary mt-4 signup">Изменить</button>
+          <button id="editMentor" class=" form-check btn btn-success mt-4 signup">Изменить</button>
+          <a href="google.com">Отмена</a>
+
+          
         </div>
       </div>
     </div>
