@@ -93,10 +93,14 @@
    </tr>
 </table>
       {{#if mentorId}}
-      <div>
-        <a class="btn btn-success" href="/mentor/edit/{{mentor.id}}">Изменить</a>
-        <a type="button" class="btn btn-danger" href="/mentor/delete/{{mentor.id}}">Удалить</a>
-      </div>
+  {{#if admin}}
+  {{/if}}
+          {{#if myPage.do}}
+            <div>
+              <a class="btn btn-success" href="/mentor/edit/{{mentor.id}}">Изменить</a>
+              <a type="button" class="btn btn-danger" href="/mentor/delete/{{mentor.id}}">Удалить</a>
+            </div>
+          {{/if}}
       {{/if}}
     {{/if}}
 </div>

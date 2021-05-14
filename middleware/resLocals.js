@@ -17,22 +17,34 @@ async function resLocals(req, res, next) {
 }
 
 const checkAdmin = (req, res, next) => {
-  if (req.mentorRole === 'admin') {
+  if (res.locals.mentorRole === 'admin') {
+    res.locals.admin = { true: 'do' }
     return next();
   }
-  return res.redirect('/');
+  res.locals.noAdmin = { true: 'do' }
+  return res.redirect('/')
 };
 
 const checkAuth = async (req, res, next) => {
   const userId = req.session?.mentor?.id // ? - оператор опциональной последовательности 
   if (userId) {
     const currentMentor = await Mentor.findById(userId)
-    req.mentorRole = currentMentor.role;
+    res.locals.mentorRole = currentMentor.role;
     return next()
   }
   return res.redirect('/mentor/signup')
 }
 
+const checkMyPage = async (req, res, next) => {
+  const userId = req.session?.mentor?.id // ? - оператор опциональной 
+  const pageId = req.params.id // - айди страницы
+
+  if (userId === pageId) {
+    res.locals.myPage = { do: 'DO' }
+    return next()
+  }
+  return next()
+}
 
 
 function createErr(req, res, next) {
@@ -69,4 +81,5 @@ module.exports = {
   cathErrAndSendAnswer,
   checkAuth,
   checkAdmin,
+  checkMyPage,
 }

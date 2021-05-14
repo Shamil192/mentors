@@ -96,14 +96,16 @@ async function mentorSignOut(req, res) {
 }
 
 async function mentorProfile(req, res) {
+
   const mentorId = req.params.id
-  const mentor = await Mentor.findOne({ _id: mentorId })
+  const mentor = await Mentor.findById({ _id: mentorId })
+
   res.render('mentors/mentorLC', { mentor });
 };
 
 async function mentorDeleteProfile(req, res) {
   try {
-    await Mentor.findByIdAndDelete(req.session.mentor.id);
+    await Mentor.findByIdAndDelete(req.session?.mentor?.id);
     return res.redirect('/');
   } catch (error) {
     const newError = new Error(error);
@@ -117,8 +119,8 @@ async function mentorDeleteProfile(req, res) {
 
 
 async function mentorEditRender(req, res) {
-  const a = req.params.id;
-  const mentor = await Mentor.findOne({ _id: a });
+  const id = req.params.id;
+  const mentor = await Mentor.findById({ _id: id });
   res.render("mentors/mentorEdit", { mentor });
   // console.log('-------', mentor)
 }
@@ -195,4 +197,5 @@ module.exports = {
   mentorShowAll,
   searchMentors,
   searchMentorsMain,
+
 };
