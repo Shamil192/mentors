@@ -1,0 +1,99 @@
+<br>
+<div class='mainLC' style="
+    display: flex;
+    justify-content: space-evenly;
+">
+<div class="card" style="width: 20rem;">
+  <img src="{{mentor.img}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{mentor.name}}</h5>
+    <p class="card-text">{{mentor.domain}}</p>
+    <p class="card-text">{{mentor.payPerHour}}  руб/ч</p>
+    <a href="#" class="btn btn-primary">Записаться</a>
+  </div>
+</div>
+<div class="info card" style="width: 44rem">
+  <div class="info card-header">
+    Немножечко информации обо мне
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Меня зовут {{mentor.name}}</h5>
+    <p class="card-text">С чем я могу помочь</p>
+    <ul>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+      <li>С чем то</li>
+    </ul>
+  </div>
+  <div class="info card-footer text-muted">
+  </div>
+</div>
+</div>
+<br><br>
+<div class='resume'>
+  <div class="resume card" style="width: 44rem; left:652px">
+  <div class="resume card-header">
+    <h4>Резюме</h4>
+  </div>
+  <div class="card-body">
+    <ul>
+      <li>Я работал тут</li>
+      <li>И тут</li>
+      <li>А тут не работал</li>
+    </ul>
+  </div>
+  <div class="resume card-footer text-muted">
+  </div>
+</div>
+<br>
+  <div class="resume card" style="width: 44rem; left:652px">
+  <div class="resume card-header">
+    <h4>Образование</h4>
+  </div>
+  <div class="card-body">
+    <ul>
+      <li>Высшее енотское образование</li>
+      <li>Низшее енотское образование</li>
+    </ul>
+  </div>
+  <div class="resume card-footer text-muted">
+  </div>
+</div>
+</div>
+<div class = 'table ' style="width: 300px;position: relative;left: 165px;bottom: 24rem;">
+ <table class="table table-hover table-bordered">
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Имя</th> <th scope="col">{{mentor.name}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Эл. почта</th> <th scope="col">{{mentor.email}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Телефон</th> <th scope="col">{{mentor.tel}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Сфера</th> <th scope="col">{{mentor.competencies}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Навыка</th> <th scope="col">{{mentor.domain}}</th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Опыт</th> <th scope="col">{{mentor.experience}} </th>  
+   </tr>
+   <tr>
+   <th scope="col" class='gg' style="font-weight: normal">Оплата</th> <th scope="col">{{mentor.payPerHour}} руб/ч</th>  
+   </tr>
+</table>
+ {{#if mentor.id}}
+      <div>
+        <a class="btn btn-success" href="/mentor/edit/{{mentor.id}}">Изменить</a>
+        <a type="button" class="btn btn-danger" href="/mentor/delete/{{mentor.id}}">Удалить</a>
+      </div>
+   {{/if}}
+</div>

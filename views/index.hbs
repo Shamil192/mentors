@@ -1,1 +1,79 @@
-&emsp; hello dude its home page
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample" style="
+    display: flex;
+    justify-content: center;">
+      <div class="accordion-body">
+        <class class="container-fluid">
+          <h3>Подбери себе ментора</h3>
+        </class>
+        <form action="/mentor/showall/serch" method="POST" class="d-flex">
+           <select id="select" name='competencies'>
+            <option disabled selected>Выберите компетенции</option>
+            {{#each uniqueCompetencies}}
+              <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+
+          {{!-- <input name='' class="form-control me-2" type="search" placeholder="React, JavaScript ..." aria-label="Search"> --}}
+          <button class="btn btn-outline-success" type="submit">Найти</button>
+        </form>
+      </div>
+      </nav>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class='card-container' style="
+    justify-content: space-evenly;
+    display: flex;
+">
+{{#each mentors}}
+  <div class="card" style="width: 11rem; height: 20rem">
+    <img src="{{this.img}}" class="card-img-top"  name="avatar">
+    <div class="card-body py-0">
+      <p class="card-title">{{this.name}}</p>
+      <p class="card-text">{{this.domain}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{this.competencies}}</li>
+    </ul>
+    <div class="card-body py-0">
+      <a href="/mentor/{{this.id}}" class="card-link">перейти  в его профиль</a>
+    </div>
+  </div>
+{{/each}}
+</div>
+
+<br>
+<br>
+
+<div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body" style='display:flex; justify-content: space-around; align-items:center; height:10rem;color: yellowgreen;background-color: rebeccapurple;' >
+    
+    <div>
+  <div>
+    <p>0 занятий проведено.</p>
+  </div>
+</div>
+    <div>
+  
+    <p class="card-text">0 учеников обучено.</p>
+  
+</div>
+    <div>
+  
+    <p class="card-text">Миллион людей счастливо.</p>
+  
+</div>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>

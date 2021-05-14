@@ -1,0 +1,25 @@
+<form id="formSignUpMentor" method="POST" action="/mentor/signin">
+  <div class="container mt-5 mb-5">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-md-6">
+        <div class="card px-5 py-5"></span>
+          <h5 class="fs-3 "></h5>
+          <h5 class="mt-3"> Форма входа для Менторов</h5> <small class="mt-2 text-muted"></small>
+          <div class="form-input">
+            <i class="fa fa-envelope"></i>
+            <input name="email" type="text" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-input">
+            <i class="fa fa-lock"></i>
+            <input name="password" type="password" class="form-control" placeholder="пароль">
+          </div>
+          {{#if error}}
+          <div>{{error}}</div>
+          </br>
+          {{/if}}
+          <button id="signUpManager" class=" mylink form-check btn btn-primary mt-4 signup">Войти</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
