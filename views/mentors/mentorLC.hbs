@@ -4,11 +4,11 @@
     justify-content: space-evenly;
 ">
 <div class="card" style="width: 20rem;">
-  <img src="{{mentor.img}}" class="card-img-top" alt="...">
+  <img src="{{mentorPage.img}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{mentor.name}}</h5>
-    <p class="card-text">{{mentor.domain}}</p>
-    <p class="card-text">{{mentor.payPerHour}}  руб/ч</p>
+    <h5 class="card-title">{{mentorPage.name}}</h5>
+    <p class="card-text">{{mentorPage.domain}}</p>
+    <p class="card-text">{{mentorPage.payPerHour}}  руб/ч</p>
     <a href="#" class="btn btn-primary">Записаться</a>
   </div>
 </div>
@@ -17,7 +17,7 @@
     Немножечко информации обо мне
   </div>
   <div class="card-body">
-    <h5 class="card-title">Меня зовут {{mentor.name}}</h5>
+    <h5 class="card-title">Меня зовут {{mentorPage.name}}</h5>
     <p class="card-text">С чем я могу помочь</p>
     <ul>
       <li>С чем то</li>
@@ -69,31 +69,33 @@
 <div class = 'table ' style="width: 300px;position: relative;left: 165px;bottom: 24rem;">
  <table class="table table-hover table-bordered">
    <tr>
-   <th scope="col" class='gg' style="font-weight: normal">Имя</th> <th scope="col">{{mentor.name}}</th>  
+   <th scope="col" class='gg' style="font-weight: normal">Имя</th> <th scope="col">{{mentorPage.name}}</th>  
    </tr>
    <tr>
-   <th scope="col" style="font-weight: normal">Эл. почта</th> <th scope="col">{{mentor.email}}</th>  
+   <th scope="col" style="font-weight: normal">Эл. почта</th> <th scope="col">{{mentorPage.email}}</th>  
    </tr>
    <tr>
-   <th scope="col" style="font-weight: normal">Телефон</th> <th scope="col">{{mentor.tel}}</th>  
+   <th scope="col" style="font-weight: normal">Телефон</th> <th scope="col">{{mentorPage.tel}}</th>  
    </tr>
    <tr>
-   <th scope="col" style="font-weight: normal">Сфера</th> <th scope="col">{{mentor.competencies}}</th>  
+   <th scope="col" style="font-weight: normal">Сфера</th> <th scope="col">{{mentorPage.competencies}}</th>  
    </tr>
    <tr>
-   <th scope="col" style="font-weight: normal">Навыка</th> <th scope="col">{{mentor.domain}}</th>  
+   <th scope="col" style="font-weight: normal">Навыка</th> <th scope="col">{{mentorPage.domain}}</th>  
    </tr>
    <tr>
-   <th scope="col" style="font-weight: normal">Опыт</th> <th scope="col">{{mentor.experience}} </th>  
+   <th scope="col" style="font-weight: normal">Опыт</th> <th scope="col">{{mentorPage.experience}} </th>  
    </tr>
    <tr>
-   <th scope="col" style="font-weight: normal">Оплата</th> <th scope="col">{{mentor.payPerHour}} руб/ч</th>  
+   <th scope="col" style="font-weight: normal">Оплата</th> <th scope="col">{{mentorPage.payPerHour}} руб/ч</th>  
    </tr>
 </table>
- {{#if mentor.id}}
+ {{#if mentorPage.id}}
+    {{#if myPage}}
       <div>
-        <a class="btn btn-success" href="/mentor/edit/{{mentor.id}}">Изменить</a>
-        <a type="button" class="btn btn-danger" href="/mentor/delete/{{mentor.id}}">Удалить</a>
+        <a class="btn btn-success" href="/mentor/edit/{{mentorPage.id}}">Изменить</a>
+        <a type="button" class="btn btn-danger" href="/mentor/delete/{{mentorPage.id}}">Удалить</a>
       </div>
-   {{/if}}
+    {{/if}}
+  {{/if}}
 </div>
